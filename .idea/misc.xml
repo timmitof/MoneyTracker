@@ -10,6 +10,8 @@
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/arrow_right_2.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/car.xml" value="0.3814814814814815" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/close.xml" value="0.3814814814814815" />
+        <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/edittext_style.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/flat_color_icons_google.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/gallery.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3814814814814815" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/illustration.xml" value="0.225" />
@@ -19,6 +21,7 @@
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/pie_chart.xml" value="0.3814814814814815" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/second_button_style.xml" value="0.3814814814814815" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/shopping_bag.xml" value="0.3814814814814815" />
+        <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/third_button_style.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/transaction.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/trash.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/user.xml" value="0.3814814814814815" />
@@ -29,8 +32,10 @@
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/drawable/variant_your_email_is_on_the_way.xml" value="0.3814814814814815" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/layout/fragment_on_boarding.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/layout/fragment_sign_up.xml" value="0.33" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/layout/fragment_splash.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/layout/onboarding_item_container.xml" value="0.33" />
+        <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/layout/toolbar_auth.xml" value="0.33" />
       </map>
     </option>
   </component>

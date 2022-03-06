@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.OnBoardingItemsAdapter
 import com.timmitof.moneytracker.databinding.FragmentOnBoardingBinding
@@ -26,6 +27,10 @@ class OnBoardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setOnBoardingItems()
+
+        binding.singUpTransition.setOnClickListener {
+            findNavController().navigate(OnBoardingFragmentDirections.actionOnBoardingFragmentToSignUpFragment())
+        }
     }
 
     private fun setOnBoardingItems(){
