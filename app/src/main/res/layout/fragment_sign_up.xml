@@ -20,7 +20,7 @@
         android:background="@drawable/edittext_style"
         android:ems="10"
         android:padding="12dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:hint="Name" />
 
     <EditText

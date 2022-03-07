@@ -5,4 +5,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="privacy_policy_by_sign">By signing up, you agree to the <a href="www.google.com">Terms of Service and Privacy Policy</a></string>
+    <string name="don_t_have_an_account">Don’t have an account yet? <a href="www.google.com">Sign Up</a></string>
+    <string name="title_forgot_password">Don’t worry. \nEnter your email and we’ll send you a link to reset your password.</string>
+    <string name="continue_text">Continue</string>
+    <string name="your_email_is_on_the_way">Your email is on the way</string>
 </resources>

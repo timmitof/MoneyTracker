@@ -27,9 +27,12 @@ class OnBoardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setOnBoardingItems()
-
         binding.singUpTransition.setOnClickListener {
             findNavController().navigate(OnBoardingFragmentDirections.actionOnBoardingFragmentToSignUpFragment())
+        }
+
+        binding.loginTransition.setOnClickListener {
+            findNavController().navigate(OnBoardingFragmentDirections.actionOnBoardingFragmentToLoginFragment())
         }
     }
 

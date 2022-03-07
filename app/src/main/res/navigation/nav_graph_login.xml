@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_onBoardingFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_onBoardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -31,5 +34,35 @@
         <action
             android:id="@+id/action_signUpFragment_to_onBoardingFragment"
             app:destination="@id/onBoardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.timmitof.moneytracker.fragments_login.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_forgotPasswordSentFragment"
+            app:destination="@id/forgotPasswordSentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordSentFragment"
+        android:name="com.timmitof.moneytracker.fragments_login.ForgotPasswordSentFragment"
+        android:label="fragment_forgot_password_sent"
+        tools:layout="@layout/fragment_forgot_password_sent" >
+        <action
+            android:id="@+id/action_forgotPasswordSentFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.timmitof.moneytracker.fragments_login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
     </fragment>
 </navigation>
