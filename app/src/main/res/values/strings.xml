@@ -9,4 +9,10 @@
     <string name="title_forgot_password">Don’t worry. \nEnter your email and we’ll send you a link to reset your password.</string>
     <string name="continue_text">Continue</string>
     <string name="your_email_is_on_the_way">Your email is on the way</string>
+    <string name="onboarding_first_titile">Gain total control of your money</string>
+    <string name="onboarding_first_description">Become your own money manager and make every cent count</string>
+    <string name="onboarding_second_titile">Know where your money goes</string>
+    <string name="onboarding_second_description">Track your transaction easily, with categories and financial report</string>
+    <string name="onboarding_third_titile">Planning ahead</string>
+    <string name="onboarding_third_description">Setup your budget for each category so you in control</string>
 </resources>

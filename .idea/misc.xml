@@ -39,6 +39,24 @@
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/layout/fragment_splash.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/layout/onboarding_item_container.xml" value="0.33" />
         <entry key="..\:/Users/timmi/Documents/GitHub/MoneyTracker/app/src/main/res/layout/toolbar_auth.xml" value="0.33" />
+        <entry key="app/src/main/res/drawable/expense_second.xml" value="0.2564814814814815" />
+        <entry key="app/src/main/res/drawable/user.xml" value="0.2564814814814815" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_first_on_boarding.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_on_boarding.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_second_on_boarding.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_third__on_boarding.xml" value="0.14387031408308004" />
+        <entry key="app/src/main/res/layout/fragment_third_on_boarding.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_transactions.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/onboarding_item_container.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/recent_transactions_item_cell.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/toolbar_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/toolbar_main.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.21944444444444444" />
       </map>
     </option>
   </component>

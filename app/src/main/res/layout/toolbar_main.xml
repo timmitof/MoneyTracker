@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/toolbar_auth_title"
+        android:id="@+id/toolbar_fragment_title"
         style="@style/Title_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

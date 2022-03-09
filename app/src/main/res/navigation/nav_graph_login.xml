@@ -16,53 +16,25 @@
     </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
-        android:name="com.timmitof.moneytracker.fragments_login.OnBoardingFragment"
+        android:name="com.timmitof.moneytracker.fragments_login.FirstOnBoardingFragment"
         android:label="fragment_on_boarding"
-        tools:layout="@layout/fragment_on_boarding" >
+        tools:layout="@layout/fragment_first_on_boarding" >
         <action
-            android:id="@+id/action_onBoardingFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
-        <action
-            android:id="@+id/action_onBoardingFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_onBoardingFragment_to_secondOnBoardingFragment"
+            app:destination="@id/secondOnBoardingFragment" />
     </fragment>
     <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.timmitof.moneytracker.fragments_login.SignUpFragment"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
+        android:id="@+id/secondOnBoardingFragment"
+        android:name="com.timmitof.moneytracker.fragments_login.SecondOnBoardingFragment"
+        android:label="fragment_second_on_boarding"
+        tools:layout="@layout/fragment_second_on_boarding" >
         <action
-            android:id="@+id/action_signUpFragment_to_onBoardingFragment"
-            app:destination="@id/onBoardingFragment" />
+            android:id="@+id/action_secondOnBoardingFragment_to_thirdOnBoardingFragment"
+            app:destination="@id/thirdOnBoardingFragment" />
     </fragment>
     <fragment
-        android:id="@+id/forgotPasswordFragment"
-        android:name="com.timmitof.moneytracker.fragments_login.ForgotPasswordFragment"
-        android:label="fragment_forgot_password"
-        tools:layout="@layout/fragment_forgot_password" >
-        <action
-            android:id="@+id/action_forgotPasswordFragment_to_forgotPasswordSentFragment"
-            app:destination="@id/forgotPasswordSentFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/forgotPasswordSentFragment"
-        android:name="com.timmitof.moneytracker.fragments_login.ForgotPasswordSentFragment"
-        android:label="fragment_forgot_password_sent"
-        tools:layout="@layout/fragment_forgot_password_sent" >
-        <action
-            android:id="@+id/action_forgotPasswordSentFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.timmitof.moneytracker.fragments_login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_onBoardingFragment"
-            app:destination="@id/onBoardingFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment" />
-    </fragment>
+        android:id="@+id/thirdOnBoardingFragment"
+        android:name="com.timmitof.moneytracker.fragments_login.ThirdOnBoardingFragment"
+        android:label="fragment_third_on_boarding"
+        tools:layout="@layout/fragment_third_on_boarding" />
 </navigation>
