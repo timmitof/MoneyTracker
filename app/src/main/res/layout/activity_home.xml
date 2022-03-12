@@ -35,13 +35,60 @@
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_main_transaction_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchor="@+id/bottom_app_bar"
         android:backgroundTint="@color/violet80"
+        android:clickable="true"
+        android:focusable="true"
         android:src="@drawable/ic_add"
-        app:maxImageSize="30dp"
         android:tint="@color/light100"
-        app:layout_anchorGravity="center_vertical" />
+        app:layout_anchor="@+id/bottom_app_bar"
+        app:layout_anchorGravity="center|top"
+        app:maxImageSize="30dp" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_expense_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="70dp"
+        android:backgroundTint="@color/red100"
+        android:src="@drawable/expense"
+        android:tint="@color/light100"
+        android:visibility="invisible"
+        app:layout_anchor="@id/bottom_app_bar"
+        app:layout_anchorGravity="right"
+        app:maxImageSize="30dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_income_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginBottom="70dp"
+        android:backgroundTint="@color/green100"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/income"
+        android:tint="@color/light100"
+        android:visibility="invisible"
+        app:layout_anchor="@id/bottom_app_bar"
+        app:layout_anchorGravity="left"
+        app:maxImageSize="30dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_exchange_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="130dp"
+        android:backgroundTint="@color/blue100"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/currency_exchange"
+        android:tint="@color/light100"
+        android:visibility="invisible"
+        app:layout_anchor="@id/bottom_app_bar"
+        app:layout_anchorGravity="center"
+        app:maxImageSize="30dp" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

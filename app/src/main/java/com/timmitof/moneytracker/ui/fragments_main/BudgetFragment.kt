@@ -1,4 +1,4 @@
-package com.timmitof.moneytracker.fragments_home
+package com.timmitof.moneytracker.ui.fragments_main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

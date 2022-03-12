@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments_login.FirstOnBoardingFragment">
+    tools:context=".ui.fragments_login.FirstOnBoardingFragment">
 
     <ImageView
         android:id="@+id/onBoardingImage"

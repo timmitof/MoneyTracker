@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.timmitof.moneytracker.fragments_login.SplashFragment"
+        android:name="com.timmitof.moneytracker.ui.fragments_login.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
-        android:name="com.timmitof.moneytracker.fragments_login.FirstOnBoardingFragment"
+        android:name="com.timmitof.moneytracker.ui.fragments_login.FirstOnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_first_on_boarding" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondOnBoardingFragment"
-        android:name="com.timmitof.moneytracker.fragments_login.SecondOnBoardingFragment"
+        android:name="com.timmitof.moneytracker.ui.fragments_login.SecondOnBoardingFragment"
         android:label="fragment_second_on_boarding"
         tools:layout="@layout/fragment_second_on_boarding" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/thirdOnBoardingFragment"
-        android:name="com.timmitof.moneytracker.fragments_login.ThirdOnBoardingFragment"
+        android:name="com.timmitof.moneytracker.ui.fragments_login.ThirdOnBoardingFragment"
         android:label="fragment_third_on_boarding"
         tools:layout="@layout/fragment_third_on_boarding" />
 </navigation>

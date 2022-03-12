@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.timmitof.moneytracker.R
-import com.timmitof.moneytracker.models.RecentTransaction
+import com.timmitof.moneytracker.entities.Spend
 
-class RecentTransactionsAdapter(private val array: ArrayList<RecentTransaction>): RecyclerView.Adapter<RecentTransactionsAdapter.ViewHolder>(){
+class RecentTransactionsAdapter(private val array: List<Spend>, val context: FragmentActivity): RecyclerView.Adapter<RecentTransactionsAdapter.ViewHolder>(){
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         var title: TextView = view.findViewById(R.id.recent_transaction_title)
         var description: TextView = view.findViewById(R.id.recent_transaction_description)
@@ -23,7 +24,7 @@ class RecentTransactionsAdapter(private val array: ArrayList<RecentTransaction>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var item = array[position]
+        val item = array[position]
         holder.title.text = item.title
         holder.description.text = item.description
         holder.sum.text = item.sum.toString()

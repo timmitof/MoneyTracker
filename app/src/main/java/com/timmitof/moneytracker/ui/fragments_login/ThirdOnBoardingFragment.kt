@@ -1,4 +1,4 @@
-package com.timmitof.moneytracker.fragments_login
+package com.timmitof.moneytracker.ui.fragments_login
 
 import android.content.Intent
 import android.os.Bundle
