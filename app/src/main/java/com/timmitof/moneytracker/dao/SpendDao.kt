@@ -11,6 +11,9 @@ interface SpendDao {
     @Query("SELECT * FROM Spend")
     fun getAllSpend(): List<Spend>
 
+    @Query("SELECT sum FROM Spend")
+    fun getSumSpend(): Int
+
     @Delete
     fun deleteSpend(spend: Spend)
 }

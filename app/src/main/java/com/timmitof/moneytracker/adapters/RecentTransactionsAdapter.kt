@@ -25,10 +25,10 @@ class RecentTransactionsAdapter(private val array: List<Spend>, val context: Fra
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = array[position]
-        holder.title.text = item.title
-        holder.description.text = item.description
-        holder.sum.text = item.sum.toString()
-        holder.time.text = item.time
+        holder.title.text = item.titleSpend
+        holder.description.text = item.descriptionSpend
+        holder.sum.text = item.sumSpend.toString()
+        holder.time.text = item.timeSpend
     }
 
     override fun getItemCount(): Int {

@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Spend(
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "title") val title: String,
-    @ColumnInfo(name = "description") val description: String,
-    @ColumnInfo(name = "sum") val sum: Int,
-    @ColumnInfo(name = "time") val time: String
+    @PrimaryKey(autoGenerate = true) val idSpend: Int,
+    @ColumnInfo(name = "title") val titleSpend: String,
+    @ColumnInfo(name = "description") val descriptionSpend: String,
+    @ColumnInfo(name = "sum") val sumSpend: Int,
+    @ColumnInfo(name = "time") val timeSpend: String
 )

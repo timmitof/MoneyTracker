@@ -13,8 +13,6 @@ import com.timmitof.moneytracker.ui.fragments_main.HomeFragmentDirections
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
-    private val rotateOpen: Animation by lazy { AnimationUtils.loadAnimation(this, R.anim.rotate_open_anim) }
-    private val rotateClose: Animation by lazy { AnimationUtils.loadAnimation(this, R.anim.rotate_close_anim) }
     private val fromBottom: Animation by lazy { AnimationUtils.loadAnimation(this, R.anim.from_bottom_anim) }
     private val toBottom: Animation by lazy { AnimationUtils.loadAnimation(this, R.anim.to_bottom_anim) }
 
@@ -25,8 +23,26 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.bottomNavigation.background = null
+        val navView: View = findViewById(R.id.fragment_container_home)
         setupBottomNav()
-        visibilityBottomNav()
+
+        navView.findNavController().addOnDestinationChangedListener{_, destination, _ ->
+            when(destination.id){
+                R.id.addIncomeFragment -> {
+                    binding.bottomAppBar.visibility = View.GONE
+                    binding.addMainTransactionBtn.visibility = View.GONE
+                }
+                R.id.addExpenseFragment -> {
+                    binding.bottomAppBar.visibility = View.GONE
+                    binding.addMainTransactionBtn.visibility = View.GONE
+                }
+
+                else -> {
+                    binding.bottomAppBar.visibility = View.VISIBLE
+                    binding.addMainTransactionBtn.visibility = View.VISIBLE
+                }
+            }
+        }
 
         binding.addMainTransactionBtn.setOnClickListener {
             onAddButtonClicked()
@@ -34,11 +50,9 @@ class HomeActivity : AppCompatActivity() {
         binding.addExpenseBtn.setOnClickListener {
             onAddButtonClicked()
             findNavController(R.id.fragment_container_home).navigate(HomeFragmentDirections.actionHomeFragmentToAddExpenseFragment())
-            visibilityBottomNav()
         }
         binding.addIncomeBtn.setOnClickListener {
             onAddButtonClicked()
-            visibilityBottomNav()
             findNavController(R.id.fragment_container_home).navigate(HomeFragmentDirections.actionHomeFragmentToAddIncomeFragment())
         }
         binding.addExchangeBtn.setOnClickListener {
@@ -79,16 +93,6 @@ class HomeActivity : AppCompatActivity() {
             binding.addExpenseBtn.startAnimation(toBottom)
             binding.addIncomeBtn.startAnimation(toBottom)
             binding.addExchangeBtn.startAnimation(toBottom)
-        }
-    }
-
-    private fun visibilityBottomNav(){
-        findNavController(R.id.fragment_container_home).addOnDestinationChangedListener{_, destination, _ ->
-            if (destination.id == R.id.fragment_container_home){
-                binding.bottomAppBar.visibility = View.INVISIBLE
-            } else {
-                binding.bottomAppBar.visibility = View.VISIBLE
-            }
         }
     }
 }

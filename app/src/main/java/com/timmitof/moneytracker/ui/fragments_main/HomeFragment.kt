@@ -23,8 +23,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val transactions = App.instance?.getDatabase()?.SpendDao()?.getAllSpend()
-        binding.recyclerviewRecentTransactions.adapter = RecentTransactionsAdapter(transactions!!, requireActivity())
-
+        val income = App.instance?.getDatabase()?.IncomeDao()
+        val transactions = App.instance?.getDatabase()?.SpendDao()
+        binding.recyclerviewRecentTransactions.adapter = RecentTransactionsAdapter(transactions?.getAllSpend()!!, requireActivity())
+        binding.incomeSum.text = income?.getSumIncome().toString()
+        binding.expensesSum.text = transactions.getSumSpend().toString()
     }
 }
