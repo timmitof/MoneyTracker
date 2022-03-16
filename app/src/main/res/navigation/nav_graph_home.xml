@@ -18,7 +18,7 @@
             app:destination="@id/addExpenseFragment" />
     </fragment>
     <fragment
-        android:id="@+id/transactionsFragment"
+        android:id="@+id/historyFragment"
         android:name="com.timmitof.moneytracker.ui.fragments_main.TransactionsFragment"
         android:label="fragment_transactions"
         tools:layout="@layout/fragment_transactions" />
@@ -28,7 +28,7 @@
         android:label="fragment_budget"
         tools:layout="@layout/fragment_budget" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/settingsFragment"
         android:name="com.timmitof.moneytracker.ui.fragments_main.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
