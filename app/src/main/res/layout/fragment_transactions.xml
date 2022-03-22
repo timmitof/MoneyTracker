@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments_main.TransactionsFragment">
 
     <TextView
@@ -11,68 +11,47 @@
         style="@style/Title_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/income"
         android:layout_alignParentStart="true"
+        android:text="Доходы"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="5dp"
-        android:text="Income" />
+        app:layout_constraintBottom_toTopOf="@+id/layout_income"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
-        android:id="@+id/income"
+        android:id="@+id/layout_income"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/text_accounts"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/bg_layout"
+        android:layout_height="120dp"
+        android:layout_below="@+id/text_income"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/layout_bg"
         android:backgroundTint="@color/light40"
         android:orientation="horizontal"
-        android:padding="10dp">
+        app:layout_constraintBottom_toTopOf="@+id/text_accounts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <ScrollView
-            android:layout_width="match_parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/income_recyclerview"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:scrollbars="horizontal">
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/title_income"
-                    style="@style/Regular_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Title"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/add_income_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/light20"
-                    android:src="@drawable/ic_add"
-                    android:tint="@color/dark25"
-                    app:borderWidth="0dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/title_income"
-                    app:maxImageSize="25dp" />
-
-                <TextView
-                    android:id="@+id/sum_income"
-                    style="@style/Tiny"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="0 KGS"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/add_income_btn" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_income_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="19dp"
+            android:backgroundTint="@color/light20"
+            android:src="@drawable/user_interface_ic_add"
+            android:tint="@color/dark25"
+            app:borderWidth="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_fab"
+            app:maxImageSize="22dp" />
     </LinearLayout>
 
     <TextView
@@ -80,68 +59,49 @@
         style="@style/Title_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/accounts"
         android:layout_alignParentStart="true"
+        android:text="Кошельки"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="5dp"
-        android:text="Accounts" />
+        app:layout_constraintBottom_toTopOf="@+id/layout_accounts"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <LinearLayout
-        android:id="@+id/accounts"
+        android:id="@+id/layout_accounts"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/text_expense"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/bg_layout"
+        android:layout_height="120dp"
+        android:layout_below="@+id/text_income"
+        android:background="@drawable/layout_bg"
         android:backgroundTint="@color/light40"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_expense"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <ScrollView
-            android:layout_width="match_parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/accounts_recyclerview"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:scrollbars="horizontal">
+            android:background="@android:color/transparent"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/title_accounts"
-                    style="@style/Regular_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Title"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/add_accounts_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/light20"
-                    android:src="@drawable/ic_add"
-                    android:tint="@color/dark25"
-                    app:borderWidth="0dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/title_accounts"
-                    app:maxImageSize="25dp" />
-
-                <TextView
-                    android:id="@+id/sum_accounts"
-                    style="@style/Tiny"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="0 KGS"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/add_accounts_btn" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_accounts_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="19dp"
+            android:backgroundTint="@color/light20"
+            android:src="@drawable/user_interface_ic_add"
+            android:tint="@color/dark25"
+            app:borderWidth="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_fab"
+            app:maxImageSize="22dp" />
     </LinearLayout>
 
     <TextView
@@ -149,65 +109,48 @@
         style="@style/Title_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/expense"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="5dp"
-        android:text="Expenses" />
+        android:text="Расходы"
+        app:layout_constraintBottom_toTopOf="@+id/layout_expense"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
-        android:id="@+id/expense"
+        android:id="@+id/layout_expense"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/bg_layout"
+        android:layout_height="280dp"
+        android:layout_below="@+id/text_income"
+        android:background="@drawable/layout_bg"
         android:backgroundTint="@color/light40"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:gravity="top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <ScrollView
-            android:layout_width="match_parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/expense_recyclerview"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:scrollbars="vertical">
+            android:background="@android:color/transparent"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="85dp"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/title_expense"
-                    style="@style/Regular_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Title"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/add_expense_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/light20"
-                    android:src="@drawable/ic_add"
-                    android:tint="@color/dark25"
-                    app:borderWidth="0dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/title_expense"
-                    app:maxImageSize="25dp" />
-
-                <TextView
-                    android:id="@+id/sum_expense"
-                    style="@style/Tiny"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="0 KGS"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/add_expense_btn" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_expense_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="19dp"
+            android:backgroundTint="@color/light20"
+            android:src="@drawable/user_interface_ic_add"
+            android:tint="@color/dark25"
+            app:borderWidth="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_fab"
+            app:maxImageSize="22dp" />
     </LinearLayout>
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,45 +9,20 @@
         android:id="@+id/homeFragment"
         android:name="com.timmitof.moneytracker.ui.fragments_main.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_addIncomeFragment"
-            app:destination="@id/addIncomeFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_addExpenseFragment"
-            app:destination="@id/addExpenseFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/historyFragment"
+        android:id="@+id/transactionsFragment"
         android:name="com.timmitof.moneytracker.ui.fragments_main.TransactionsFragment"
         android:label="fragment_transactions"
         tools:layout="@layout/fragment_transactions" />
     <fragment
-        android:id="@+id/budgetFragment"
-        android:name="com.timmitof.moneytracker.ui.fragments_main.BudgetFragment"
+        android:id="@+id/reportFragment"
+        android:name="com.timmitof.moneytracker.ui.fragments_main.ReportFragment"
         android:label="fragment_budget"
-        tools:layout="@layout/fragment_budget" />
+        tools:layout="@layout/fragment_report" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.timmitof.moneytracker.ui.fragments_main.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/addIncomeFragment"
-        android:name="com.timmitof.moneytracker.ui.fragments_transactions.AddIncomeFragment"
-        android:label="fragment_add_income"
-        tools:layout="@layout/fragment_add_income" >
-        <action
-            android:id="@+id/action_addIncomeFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/addExpenseFragment"
-        android:name="com.timmitof.moneytracker.ui.fragments_transactions.AddExpenseFragment"
-        android:label="fragment_add_expense"
-        tools:layout="@layout/fragment_add_expense" >
-        <action
-            android:id="@+id/action_addExpenseFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        android:name="com.timmitof.moneytracker.ui.fragments_main.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
