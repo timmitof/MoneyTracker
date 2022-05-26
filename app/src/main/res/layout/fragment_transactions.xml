@@ -4,153 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments_main.TransactionsFragment">
+    tools:context=".views.transaction.TransactionsFragment">
 
     <TextView
-        android:id="@+id/text_income"
+        android:id="@+id/text_history"
         style="@style/Title_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:text="Доходы"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/layout_income"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_margin="10dp"
+        android:text="История"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/layout_income"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_below="@+id/text_income"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/layout_bg"
-        android:backgroundTint="@color/light40"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/text_accounts"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/income_recyclerview"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_income_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="19dp"
-            android:backgroundTint="@color/light20"
-            android:src="@drawable/user_interface_ic_add"
-            android:tint="@color/dark25"
-            app:borderWidth="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_fab"
-            app:maxImageSize="22dp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/text_accounts"
-        style="@style/Title_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:text="Кошельки"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/layout_accounts"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <LinearLayout
-        android:id="@+id/layout_accounts"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_below="@+id/text_income"
-        android:background="@drawable/layout_bg"
-        android:backgroundTint="@color/light40"
-        android:orientation="horizontal"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_expense"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/accounts_recyclerview"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_accounts_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="19dp"
-            android:backgroundTint="@color/light20"
-            android:src="@drawable/user_interface_ic_add"
-            android:tint="@color/dark25"
-            app:borderWidth="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_fab"
-            app:maxImageSize="22dp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/text_expense"
-        style="@style/Title_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="5dp"
-        android:text="Расходы"
-        app:layout_constraintBottom_toTopOf="@+id/layout_expense"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/layout_expense"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_below="@+id/text_income"
-        android:background="@drawable/layout_bg"
-        android:backgroundTint="@color/light40"
-        android:orientation="horizontal"
-        android:gravity="top"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactions_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/expense_recyclerview"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_expense_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="19dp"
-            android:backgroundTint="@color/light20"
-            android:src="@drawable/user_interface_ic_add"
-            android:tint="@color/dark25"
-            app:borderWidth="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_fab"
-            app:maxImageSize="22dp" />
-    </LinearLayout>
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_history"
+        tools:listitem="@layout/item_transactions" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

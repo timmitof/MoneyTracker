@@ -7,6 +7,16 @@
     android:background="@drawable/bottom_sheet_bg"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_back"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/dark75" />
+
     <TextView
         android:id="@+id/title_bottom_sheet"
         style="@style/Title_2"
@@ -18,44 +28,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/icon_choose_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="@color/violet20"
-        app:borderWidth="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_bottom_sheet"
-        app:maxImageSize="25dp"
-        app:tint="@color/violet60"
-        tools:src="@drawable/ic_transaction" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/choose_icon_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="5"
+        app:spanCount="4"
         android:orientation="vertical"
         tools:listitem="@layout/item_choose_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_choose_category" />
+        app:layout_constraintTop_toBottomOf="@+id/title_bottom_sheet" />
 
     <Button
+        android:id="@+id/add_btn"
         style="@style/Regular_2"
         android:layout_width="130dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/button_style"
         android:text="Готово"
-        android:layout_marginBottom="10dp"
         android:textAllCaps="false"
         android:textColor="@color/violet20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_icon_recyclerview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

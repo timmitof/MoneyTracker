@@ -10,12 +10,6 @@
         android:title="History"
         android:icon="@drawable/bottom_nav_ic_list"
         />
-
-    <item
-        android:id="@+id/reportFragment"
-        android:title="Report"
-        android:icon="@drawable/bottom_nav_ic_budget"
-        />
     <item
         android:id="@+id/settingsFragment"
         android:title="Settings"

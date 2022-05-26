@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
     app:cardCornerRadius="10dp"
     android:backgroundTint="#EDEDED">
 
@@ -17,14 +16,14 @@
             android:id="@+id/transactions_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/layout_bg"
+            android:background="@drawable/view_bg"
             android:backgroundTint="@color/blue20"
             tools:src="@drawable/ic_transaction"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:padding="7dp"
-            app:tint="@color/blue80" />
+            app:tint="@color/blue100" />
 
         <TextView
             android:id="@+id/transactions_title"
@@ -37,14 +36,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/transactions_descriptions"
+            android:id="@+id/transactions_sum"
             style="@style/Tiny"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Название"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/transactions_image"
-            app:layout_constraintTop_toBottomOf="@+id/transactions_title" />
+            app:layout_constraintTop_toBottomOf="@+id/transactions_title"
+            tools:text="Сумма" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

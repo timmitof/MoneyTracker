@@ -13,10 +13,10 @@
         android:name=".App"
         android:theme="@style/Theme.MoneyTracker">
         <activity
-            android:name=".HomeActivity"
+            android:name=".views.homeActivity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".views.loginActivity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

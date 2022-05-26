@@ -2,19 +2,17 @@ package com.timmitof.moneytracker.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.timmitof.moneytracker.dao.AccountDao
-import com.timmitof.moneytracker.dao.ExpenseDao
-import com.timmitof.moneytracker.dao.IncomeDao
-import com.timmitof.moneytracker.dao.TransactionsDao
-import com.timmitof.moneytracker.entities.Accounts
-import com.timmitof.moneytracker.entities.Expenses
-import com.timmitof.moneytracker.entities.Income
-import com.timmitof.moneytracker.entities.Transactions
+import com.timmitof.moneytracker.dao.CategoryDao
+import com.timmitof.moneytracker.dao.TransactionDao
+import com.timmitof.moneytracker.dao.TypeDao
+import com.timmitof.moneytracker.models.Category
+import com.timmitof.moneytracker.models.Transaction
+import com.timmitof.moneytracker.models.Type
 
-@Database(entities = [Transactions::class, Income::class, Expenses::class, Accounts::class], version = 5, exportSchema = false)
+
+@Database(entities = [Category::class, Transaction::class, Type::class], version = 1, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
-    abstract fun TransactionsDao(): TransactionsDao
-    abstract fun IncomeDao(): IncomeDao
-    abstract fun ExpenseDao(): ExpenseDao
-    abstract fun AccountDao(): AccountDao
+    abstract fun CategoryDao(): CategoryDao
+    abstract fun TransactionDao(): TransactionDao
+    abstract fun TypeDao(): TypeDao
 }

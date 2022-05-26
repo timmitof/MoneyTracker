@@ -4,160 +4,226 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments_main.HomeFragment">
+    tools:context=".views.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_income"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_balance"
         style="@style/Title_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:text="Доходы"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/layout_income"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/layout_income"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_below="@+id/text_income"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/layout_bg"
-        android:backgroundTint="@color/light40"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/text_accounts"
+        android:layout_marginTop="30dp"
+        android:text="Баланс"
+        android:textColor="@color/dark25"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/income_recyclerview"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingTop="5dp"
-            tools:listitem="@layout/item_fab_btn"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_income_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="19dp"
-            android:backgroundTint="@color/light20"
-            android:src="@drawable/user_interface_ic_add"
-            android:tint="@color/dark25"
-            app:borderWidth="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_fab"
-            app:maxImageSize="22dp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/text_accounts"
-        style="@style/Title_3"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/balance_sum"
+        style="@style/Title_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:text="Кошельки"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/layout_accounts"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <LinearLayout
-        android:id="@+id/layout_accounts"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_below="@+id/text_income"
-        android:background="@drawable/layout_bg"
-        android:backgroundTint="@color/light40"
-        android:orientation="horizontal"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_expense"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_balance"
+        tools:text="$5000" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/accounts_recyclerview"
-            android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_income"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/green100"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/balance_sum">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:orientation="horizontal"
-            android:paddingTop="5dp"
-            tools:listitem="@layout/item_fab_btn"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_accounts_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="19dp"
-            android:backgroundTint="@color/light20"
-            android:src="@drawable/user_interface_ic_add"
-            android:tint="@color/dark25"
-            app:borderWidth="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_fab"
-            app:maxImageSize="22dp" />
-    </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_image_income"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/image_income"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/finance_ic_income"
+                    android:tint="@color/green100" />
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_income"
+                style="@style/Regular_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Доход"
+                android:textColor="@color/light100"
+                app:layout_constraintStart_toEndOf="@+id/cardView_image_income"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/income_sum"
+                style="@style/Regular_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="0"
+                android:textColor="@color/light100"
+                app:layout_constraintStart_toEndOf="@+id/cardView_image_income"
+                app:layout_constraintTop_toBottomOf="@+id/text_income" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_expense"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/red100"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/balance_sum">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_image_expense"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/image_expense"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/finance_ic_expense"
+                    android:tint="@color/red100" />
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_expense"
+                style="@style/Regular_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Расходы"
+                android:textColor="@color/light100"
+                app:layout_constraintStart_toEndOf="@+id/cardView_image_expense"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/expense_sum"
+                style="@style/Regular_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="0"
+                android:textColor="@color/light100"
+                app:layout_constraintStart_toEndOf="@+id/cardView_image_expense"
+                app:layout_constraintTop_toBottomOf="@+id/text_expense" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/text_expense"
+        android:id="@+id/text_transaction"
         style="@style/Title_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="5dp"
-        android:text="Расходы"
-        app:layout_constraintBottom_toTopOf="@+id/layout_expense"
+        android:layout_margin="10dp"
+        android:text="Транзакции"
+        app:layout_constraintBottom_toTopOf="@+id/transactions_recyclerView"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/layout_expense"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_below="@+id/text_income"
-        android:background="@drawable/layout_bg"
-        android:backgroundTint="@color/light40"
-        android:orientation="horizontal"
-        android:gravity="top"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactions_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="80dp"
+        tools:listitem="@layout/item_transactions"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_income"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/expense_recyclerview"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:orientation="horizontal"
-            app:spanCount="2"
-            android:paddingTop="5dp"
-            tools:listitem="@layout/item_fab_btn"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:borderWidth="0dp"
+        android:backgroundTint="@color/violet100"
+        android:src="@drawable/user_interface_ic_add"
+        android:tint="@color/violet20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="30dp" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_expense_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="19dp"
-            android:backgroundTint="@color/light20"
-            android:src="@drawable/user_interface_ic_add"
-            android:tint="@color/dark25"
-            app:borderWidth="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_fab"
-            app:maxImageSize="22dp" />
-    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_income_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/green100"
+        android:src="@drawable/finance_ic_income"
+        android:tint="@color/violet20"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/add_fab"
+        app:layout_constraintEnd_toEndOf="@+id/add_fab"
+        app:layout_constraintStart_toStartOf="@+id/add_fab"
+        app:maxImageSize="30dp" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_expense_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/red100"
+        android:src="@drawable/finance_ic_expense"
+        android:tint="@color/violet20"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/add_income_fab"
+        app:layout_constraintEnd_toEndOf="@+id/add_income_fab"
+        app:layout_constraintStart_toStartOf="@+id/add_income_fab"
+        app:maxImageSize="30dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_category_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/blue100"
+        android:src="@drawable/user_interface_ic_edit"
+        android:tint="@color/violet20"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/add_expense_fab"
+        app:layout_constraintEnd_toEndOf="@+id/add_expense_fab"
+        app:layout_constraintStart_toStartOf="@+id/add_expense_fab"
+        app:maxImageSize="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
