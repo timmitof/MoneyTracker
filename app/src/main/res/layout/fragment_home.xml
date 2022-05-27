@@ -154,22 +154,28 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Транзакции"
-        app:layout_constraintBottom_toTopOf="@+id/transactions_recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/transactions_card"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/transactions_recyclerView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/transactions_card"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:cardCornerRadius="30dp"
         android:layout_marginTop="80dp"
-        tools:listitem="@layout/item_transactions"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView_income"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView_income">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/transactions_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_transactions"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab"
