@@ -12,7 +12,7 @@
         />
     <item
         android:id="@+id/profileFragment"
-        android:title="Settings"
+        android:title="Profile"
         android:icon="@drawable/ic_person"
         />
 </menu>

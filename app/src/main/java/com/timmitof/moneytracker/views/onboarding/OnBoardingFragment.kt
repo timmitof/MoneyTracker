@@ -39,8 +39,7 @@ class OnBoardingFragment : Fragment(), IOnBoardingFragmentView {
         setViewPager()
         setCurrentIndicators(0)
         binding.nextFab.setOnClickListener {
-            presenter.onButtonClick(requireActivity(), HomeActivity())
-            requireActivity().finish()
+            presenter.startActivity(requireActivity(), HomeActivity())
         }
     }
 
@@ -52,7 +51,8 @@ class OnBoardingFragment : Fragment(), IOnBoardingFragmentView {
                 super.onPageSelected(position)
                 setCurrentIndicators(position)
             }
-        })
+        }
+        )
 
         indicatorsContainer = binding.indicatorsContainer
         val indicators = arrayOfNulls<ImageView>(adapter.itemCount)

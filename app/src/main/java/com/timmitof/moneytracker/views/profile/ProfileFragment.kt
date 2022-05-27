@@ -14,17 +14,22 @@ import com.timmitof.moneytracker.Constants
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.ChooseIconAdapter
 import com.timmitof.moneytracker.databinding.FragmentProfileBinding
+import com.timmitof.moneytracker.presenters.profile.IProfilePresenter
+import com.timmitof.moneytracker.presenters.profile.ProfilePresenter
 import com.timmitof.moneytracker.storage.SharedPreference
 
 class ProfileFragment : Fragment(), ProfileFragmentView {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var presenter: IProfilePresenter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        presenter = ProfilePresenter(this)
         return binding.root
     }
 
@@ -52,8 +57,7 @@ class ProfileFragment : Fragment(), ProfileFragmentView {
         }
 
         positiveButton.setOnClickListener {
-            val usernameValue = username.text.toString()
-            sharedPreference.username = usernameValue
+            presenter.addProfile(requireContext(), username.text.toString())
             dialog.dismiss()
         }
         dialog.show()
