@@ -40,6 +40,7 @@ class AddCategoryFragment : Fragment(), IAddCategoryFragmentView {
         }
         binding.addCategoryBtn.setOnClickListener {
             presenter.addCategory(binding.addNameCategory.text.toString(), imageUrl)
+            findNavController().navigate(AddCategoryFragmentDirections.actionAddCategoryFragmentToHomeFragment())
         }
     }
 

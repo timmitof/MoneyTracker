@@ -1,6 +1,7 @@
 package com.timmitof.moneytracker.views.homeActivity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -21,5 +22,13 @@ class HomeActivity : AppCompatActivity() {
     private fun setupBottomNav() {
         val navController = findNavController(R.id.fragment_container_home)
         binding.bottomNavigation.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.homeFragment -> binding.bottomNavigation.visibility = View.VISIBLE
+                R.id.transactionsFragment -> binding.bottomNavigation.visibility = View.VISIBLE
+                R.id.profileFragment -> binding.bottomNavigation.visibility = View.VISIBLE
+                else -> binding.bottomNavigation.visibility = View.GONE
+            }
+        }
     }
 }

@@ -10,6 +10,6 @@ data class Type (
 )
 
 enum class TypeEnum(val type: Int){
-    Income(1),
-    Expense(2)
+    Income(0),
+    Expense(1)
 }

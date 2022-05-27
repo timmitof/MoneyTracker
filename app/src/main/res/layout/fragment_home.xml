@@ -64,7 +64,7 @@
                     android:tint="@color/green100" />
             </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:id="@+id/text_income"
                 style="@style/Regular_3"
                 android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
                 app:layout_constraintStart_toEndOf="@+id/cardView_image_income"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:id="@+id/income_sum"
                 style="@style/Regular_2"
                 android:layout_width="wrap_content"

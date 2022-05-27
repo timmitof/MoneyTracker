@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.navigation.fragment.findNavController
 import com.timmitof.moneytracker.App
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.SpinnerCategoryAdapter
@@ -38,14 +39,14 @@ class AddExpenseFragment : Fragment(), IAddExpenseFragmentView {
 
         binding.addExpenseBtn.setOnClickListener {
             presenter.addExpense(categoryName, TypeEnum.Expense.ordinal, categoryImage, binding.descriptionExpense.text?.toString(), binding.sumExpense.text.toString().toInt())
-
+            findNavController().navigate(AddExpenseFragmentDirections.actionAddExpenseFragmentToHomeFragment())
         }
     }
 
     override fun setTopNavigation() {
         binding.topNavigation.title.text = "Расход"
         binding.topNavigation.backBtn.setOnClickListener {
-            AddExpenseFragmentDirections.actionAddExpenseFragmentToHomeFragment()
+            findNavController().navigate(AddExpenseFragmentDirections.actionAddExpenseFragmentToHomeFragment())
         }
     }
 

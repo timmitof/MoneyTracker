@@ -89,18 +89,18 @@ class Constants {
         val onBoardingList = listOf(
             OnBoardingItem(
                 image = R.drawable.variant_gain_total_control_of_your_money,
-                title = "Gain total control of your money",
-                description = "Become your own money manager and make every cent count"
+                title = "Получите полный контроль над своими деньгами",
+                description = "Станьте своим собственным управляющим деньгами и считайте каждый цент"
             ),
             OnBoardingItem(
                 image = R.drawable.variant_know_where_your_money_goes,
-                title = "Know where your money goes",
-                description = "Track your transaction easily, with categories and financial report"
+                title = "Знайте куда уходят ваши деньги",
+                description = "Легко отслеживайте свою транзакцию с категориями и финансовым отчетом"
             ),
             OnBoardingItem(
                 image = R.drawable.variant_planning_ahead,
-                title = "Planning ahead",
-                description = "Setup your budget for each category so you in control"
+                title = "Планируйте заранее",
+                description = "Настройте свой бюджет для каждой категории, чтобы контролировать"
             )
         )
     }

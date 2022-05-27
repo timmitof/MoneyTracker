@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.timmitof.moneytracker.App
 import com.timmitof.moneytracker.Constants
 import com.timmitof.moneytracker.R
@@ -42,14 +43,14 @@ class AddIncomeFragment : Fragment(), IAddIncomeFragmentView {
 
         binding.addIncomeBtn.setOnClickListener {
             presenter.addIncome(categoryName, TypeEnum.Income.ordinal, categoryImage, binding.descriptionIncome.text?.toString(), binding.sumIncome.text.toString().toInt())
-        onDestroyView()
+            findNavController().navigate(AddIncomeFragmentDirections.actionAddIncomeFragmentToHomeFragment())
         }
     }
 
     override fun setTopNavigation() {
         binding.topNavigation.title.text = "Доход"
         binding.topNavigation.backBtn.setOnClickListener {
-            AddIncomeFragmentDirections.actionAddIncomeFragmentToHomeFragment()
+            findNavController().navigate(AddIncomeFragmentDirections.actionAddIncomeFragmentToHomeFragment())
         }
     }
 

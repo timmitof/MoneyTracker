@@ -26,16 +26,13 @@
         android:label="fragment_transactions"
         tools:layout="@layout/fragment_transactions" />
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.timmitof.moneytracker.views.settings.SettingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
-    <fragment
         android:id="@+id/addCategoryFragment"
         android:name="com.timmitof.moneytracker.views.addCategory.AddCategoryFragment"
         android:label="fragment_add_category"
         tools:layout="@layout/fragment_add_category" >
         <action
+            app:popUpTo="@id/addCategoryFragment"
+            app:popUpToInclusive="true"
             android:id="@+id/action_addCategoryFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
@@ -45,6 +42,8 @@
         android:label="fragment_add_expense"
         tools:layout="@layout/fragment_add_expense" >
         <action
+            app:popUpTo="@id/addExpenseFragment"
+            app:popUpToInclusive="true"
             android:id="@+id/action_addExpenseFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
@@ -54,7 +53,14 @@
         android:label="fragment_add_income"
         tools:layout="@layout/fragment_add_income" >
         <action
+            app:popUpTo="@id/addIncomeFragment"
+            app:popUpToInclusive="true"
             android:id="@+id/action_addIncomeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.timmitof.moneytracker.views.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

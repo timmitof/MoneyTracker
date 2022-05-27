@@ -33,15 +33,6 @@ class HomeFragment : Fragment(), IHomeFragmentView {
         binding.addFab.setOnClickListener {
             presenter.addFabOnClick(requireContext(), binding.addIncomeFab, binding.addExpenseFab, binding.addCategoryFab, binding.addFab)
         }
-        binding.addCategoryFab.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddCategoryFragment())
-        }
-        binding.addIncomeFab.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddIncomeFragment())
-        }
-        binding.addExpenseFab.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddExpenseFragment())
-        }
     }
 
     override fun setRecyclerView() {
@@ -51,8 +42,21 @@ class HomeFragment : Fragment(), IHomeFragmentView {
 
     override fun setViews() {
         val dbTransaction = App.instance?.getDatabase()?.TransactionDao()
-        binding.balanceSum.text = dbTransaction?.getAllSum().toString()
-        binding.expenseSum.text = dbTransaction?.getAllExpense().toString()
-        binding.incomeSum.text = dbTransaction?.getAllIncome().toString()
+        val income = dbTransaction?.getAllIncome()
+        val expense = dbTransaction?.getAllExpense()
+        val balance = "${income!! - expense!!}"
+        binding.balanceSum.text = balance
+        binding.expenseSum.text = expense.toString()
+        binding.incomeSum.text = income.toString()
+
+        binding.addCategoryFab.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddCategoryFragment())
+        }
+        binding.addIncomeFab.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddIncomeFragment())
+        }
+        binding.addExpenseFab.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddExpenseFragment())
+        }
     }
 }
