@@ -6,9 +6,9 @@ import com.timmitof.moneytracker.models.Category
 import com.timmitof.moneytracker.views.addCategory.IAddCategoryFragmentView
 
 class CategoryPresenter(val view: IAddCategoryFragmentView): ICategoryPresenter {
-    override fun addCategory(name: String, icon: Int?) {
+    override fun addCategory(name: String, icon: Int?, type: Int) {
         val dbCategory = App.instance?.getDatabase()?.CategoryDao()
-        val category = Category(null, name, icon)
+        val category = Category(null, name, icon, type)
         dbCategory?.addCategory(category)
         Log.d("DDDD", "${dbCategory?.getAllCategory()}")
     }

@@ -26,7 +26,7 @@ class HomeActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.homeFragment -> binding.bottomNavigation.visibility = View.VISIBLE
                 R.id.transactionsFragment -> binding.bottomNavigation.visibility = View.VISIBLE
-                R.id.profileFragment -> binding.bottomNavigation.visibility = View.VISIBLE
+                R.id.settingsFragment -> binding.bottomNavigation.visibility = View.VISIBLE
                 else -> binding.bottomNavigation.visibility = View.GONE
             }
         }

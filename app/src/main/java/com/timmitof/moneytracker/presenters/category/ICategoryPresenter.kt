@@ -1,5 +1,5 @@
 package com.timmitof.moneytracker.presenters.category
 
 interface ICategoryPresenter {
-    fun addCategory(name: String, icon: Int?)
+    fun addCategory(name: String, icon: Int?, type: Int)
 }

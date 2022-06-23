@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.timmitof.moneytracker.App
 import com.timmitof.moneytracker.Constants
@@ -42,21 +43,25 @@ class AddIncomeFragment : Fragment(), IAddIncomeFragmentView {
         setCustomSpinner()
 
         binding.addIncomeBtn.setOnClickListener {
-            presenter.addIncome(categoryName, TypeEnum.Income.ordinal, categoryImage, binding.descriptionIncome.text?.toString(), binding.sumIncome.text.toString().toInt())
-            findNavController().navigate(AddIncomeFragmentDirections.actionAddIncomeFragmentToHomeFragment())
+            if (binding.descriptionIncome.text.isNullOrBlank() || binding.sumIncome.text.isNullOrBlank()) {
+                Toast.makeText(requireContext(), "Заполните поля!", Toast.LENGTH_SHORT).show()
+            } else {
+                presenter.addIncome(categoryName, TypeEnum.Income.ordinal, categoryImage, binding.descriptionIncome.text?.toString(), binding.sumIncome.text.toString().toInt())
+                Toast.makeText(requireContext(), "Добавлено", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
     override fun setTopNavigation() {
         binding.topNavigation.title.text = "Доход"
         binding.topNavigation.backBtn.setOnClickListener {
-            findNavController().navigate(AddIncomeFragmentDirections.actionAddIncomeFragmentToHomeFragment())
+            findNavController().navigateUp()
         }
     }
 
     override fun setCustomSpinner() {
         val dbCategory = App.instance?.getDatabase()?.CategoryDao()
-        val adapter = dbCategory?.getAllCategory()?.let { SpinnerCategoryAdapter(requireContext(), it) }
+        val adapter = dbCategory?.getAllCategoryIncome()?.let { SpinnerCategoryAdapter(requireContext(), it) }
         binding.spinnerCategory.adapter = adapter
 
         binding.spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{

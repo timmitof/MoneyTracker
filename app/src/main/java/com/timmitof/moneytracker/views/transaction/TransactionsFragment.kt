@@ -4,10 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.timmitof.moneytracker.App
+import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.HistoryAdapter
 import com.timmitof.moneytracker.databinding.FragmentTransactionsBinding
+import com.timmitof.moneytracker.models.TypeEnum
+import com.timmitof.moneytracker.views.settings.SettingsFragmentDirections
 
 
 class TransactionsFragment : Fragment(), ITransactionFragment {
@@ -24,12 +30,35 @@ class TransactionsFragment : Fragment(), ITransactionFragment {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setRecyclerView()
+        binding.filterButton.setOnClickListener {
+            setBottomSheetDialog()
+        }
     }
 
-    override fun setRecyclerView() {
+    override fun setBottomSheetDialog() {
         val dbTransaction = App.instance?.getDatabase()?.TransactionDao()
-        binding.transactionsRecyclerView.adapter = HistoryAdapter(dbTransaction?.getAllTransaction()!!)
+        val adapter = dbTransaction?.getAllTransaction()?.let { HistoryAdapter(it) }
+        binding.transactionsRecyclerView.adapter = adapter
+
+        val dialog = BottomSheetDialog(requireContext())
+        val view = layoutInflater.inflate(R.layout.bottom_sheet_filter, null)
+        val clearBtn = view.findViewById<Button>(R.id.clear_filter_btn)
+        val incomeSortBtn = view.findViewById<Button>(R.id.filter_by_income_btn)
+        val expenseSortBtn = view.findViewById<Button>(R.id.filter_by_expense_btn)
+        incomeSortBtn.setOnClickListener {
+            val adapterIncome = dbTransaction?.getAllIncomeList()?.let { HistoryAdapter(it) }
+            binding.transactionsRecyclerView.adapter = adapterIncome
+        }
+        expenseSortBtn.setOnClickListener {
+            val adapterExpense = dbTransaction?.getAllExpenseList()?.let { HistoryAdapter(it) }
+            binding.transactionsRecyclerView.adapter = adapterExpense
+        }
+        clearBtn.setOnClickListener {
+            binding.transactionsRecyclerView.adapter = adapter
+        }
+
+        dialog.setContentView(view)
+        dialog.show()
     }
 
 }

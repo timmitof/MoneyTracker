@@ -13,25 +13,23 @@ import com.timmitof.moneytracker.views.home.IHomeFragmentView
 class HomePresenter(val view: IHomeFragmentView, val context: Context): IHomePresenter {
     var clicked = false
 
-    override fun addFabOnClick(context: Context, incomeFab: FloatingActionButton, expenseFab: FloatingActionButton, categoryFab: FloatingActionButton, addFab: FloatingActionButton) {
-        setVisibility(clicked, incomeFab, expenseFab, categoryFab)
-        setAnimation(clicked, incomeFab, expenseFab, categoryFab, addFab)
+    override fun addFabOnClick(context: Context, incomeFab: FloatingActionButton, expenseFab: FloatingActionButton, addFab: FloatingActionButton) {
+        setVisibility(clicked, incomeFab, expenseFab)
+        setAnimation(clicked, incomeFab, expenseFab, addFab)
         clicked = !clicked
     }
 
-    private fun setVisibility(clicked: Boolean, incomeFab: FloatingActionButton, expenseFab: FloatingActionButton, categoryFab: FloatingActionButton){
+    private fun setVisibility(clicked: Boolean, incomeFab: FloatingActionButton, expenseFab: FloatingActionButton){
         if (!clicked) {
             incomeFab.visibility = View.VISIBLE
             expenseFab.visibility = View.VISIBLE
-            categoryFab.visibility = View.VISIBLE
         } else {
             incomeFab.visibility = View.INVISIBLE
             expenseFab.visibility = View.INVISIBLE
-            categoryFab.visibility = View.INVISIBLE
         }
     }
 
-    private fun setAnimation(clicked: Boolean, incomeFab: FloatingActionButton, expenseFab: FloatingActionButton, categoryFab: FloatingActionButton, addFab: FloatingActionButton){
+    private fun setAnimation(clicked: Boolean, incomeFab: FloatingActionButton, expenseFab: FloatingActionButton, addFab: FloatingActionButton){
         val rotateOpen: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.rotate_open_anim) }
         val rotateClose: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.rotate_close_anim) }
         val fromBottom: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.from_bottom_anim) }
@@ -40,12 +38,10 @@ class HomePresenter(val view: IHomeFragmentView, val context: Context): IHomePre
         if (!clicked) {
             incomeFab.startAnimation(fromBottom)
             expenseFab.startAnimation(fromBottom)
-            categoryFab.startAnimation(fromBottom)
             addFab.startAnimation(rotateOpen)
         } else {
             incomeFab.startAnimation(toBottom)
             expenseFab.startAnimation(toBottom)
-            categoryFab.startAnimation(toBottom)
             addFab.startAnimation(rotateClose)
         }
     }

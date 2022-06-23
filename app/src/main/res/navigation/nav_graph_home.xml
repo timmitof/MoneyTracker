@@ -9,17 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.timmitof.moneytracker.views.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_addCategoryFragment"
-            app:destination="@id/addCategoryFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_addExpenseFragment"
-            app:destination="@id/addExpenseFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_addIncomeFragment"
-            app:destination="@id/addIncomeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/transactionsFragment"
         android:name="com.timmitof.moneytracker.views.transaction.TransactionsFragment"
@@ -30,37 +20,32 @@
         android:name="com.timmitof.moneytracker.views.addCategory.AddCategoryFragment"
         android:label="fragment_add_category"
         tools:layout="@layout/fragment_add_category" >
-        <action
-            app:popUpTo="@id/addCategoryFragment"
-            app:popUpToInclusive="true"
-            android:id="@+id/action_addCategoryFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+        <argument
+            android:name="type_category"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/addExpenseFragment"
         android:name="com.timmitof.moneytracker.views.addExpense.AddExpenseFragment"
         android:label="fragment_add_expense"
-        tools:layout="@layout/fragment_add_expense" >
-        <action
-            app:popUpTo="@id/addExpenseFragment"
-            app:popUpToInclusive="true"
-            android:id="@+id/action_addExpenseFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_add_expense" />
     <fragment
         android:id="@+id/addIncomeFragment"
         android:name="com.timmitof.moneytracker.views.addIncome.AddIncomeFragment"
         android:label="fragment_add_income"
-        tools:layout="@layout/fragment_add_income" >
+        tools:layout="@layout/fragment_add_income" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.timmitof.moneytracker.views.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
         <action
-            app:popUpTo="@id/addIncomeFragment"
-            app:popUpToInclusive="true"
-            android:id="@+id/action_addIncomeFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_settingsFragment_to_addCategoryFragment"
+            app:destination="@id/addCategoryFragment" />
     </fragment>
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.timmitof.moneytracker.views.profile.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:id="@+id/deleteCategoryFragment"
+        android:name="com.timmitof.moneytracker.views.deleteCategory.DeleteCategoryFragment"
+        android:label="fragment_delete_category"
+        tools:layout="@layout/fragment_delete_category" />
 </navigation>

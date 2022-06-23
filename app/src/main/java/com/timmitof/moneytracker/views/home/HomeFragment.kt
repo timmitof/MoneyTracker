@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.timmitof.moneytracker.App
+import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.HomeAdapter
 import com.timmitof.moneytracker.databinding.FragmentHomeBinding
 import com.timmitof.moneytracker.presenters.home.HomePresenter
@@ -31,7 +32,7 @@ class HomeFragment : Fragment(), IHomeFragmentView {
         setRecyclerView()
         setViews()
         binding.addFab.setOnClickListener {
-            presenter.addFabOnClick(requireContext(), binding.addIncomeFab, binding.addExpenseFab, binding.addCategoryFab, binding.addFab)
+            presenter.addFabOnClick(requireContext(), binding.addIncomeFab, binding.addExpenseFab, binding.addFab)
         }
     }
 
@@ -49,14 +50,11 @@ class HomeFragment : Fragment(), IHomeFragmentView {
         binding.expenseSum.text = expense.toString()
         binding.incomeSum.text = income.toString()
 
-        binding.addCategoryFab.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddCategoryFragment())
-        }
         binding.addIncomeFab.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddIncomeFragment())
+            findNavController().navigate(R.id.addIncomeFragment)
         }
         binding.addExpenseFab.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddExpenseFragment())
+            findNavController().navigate(R.id.addExpenseFragment)
         }
     }
 }

@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/violet100</item>
         <item name="colorPrimaryVariant">@color/violet60</item>
         <item name="colorOnPrimary">@color/light100</item>
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/light40</item>
         <!-- Customize your theme here. -->
     </style>
 

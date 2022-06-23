@@ -10,8 +10,12 @@ import com.timmitof.moneytracker.models.Transaction
 import com.timmitof.moneytracker.models.Type
 
 
-@Database(entities = [Category::class, Transaction::class, Type::class], version = 1, exportSchema = false)
-abstract class AppDatabase: RoomDatabase() {
+@Database(
+    entities = [Category::class, Transaction::class, Type::class],
+    version = 1,
+    exportSchema = false
+)
+abstract class AppDatabase : RoomDatabase() {
     abstract fun CategoryDao(): CategoryDao
     abstract fun TransactionDao(): TransactionDao
     abstract fun TypeDao(): TypeDao
