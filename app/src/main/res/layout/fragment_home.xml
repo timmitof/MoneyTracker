@@ -177,6 +177,7 @@
             android:id="@+id/transactions_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:elevation="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_transactions" />
     </androidx.cardview.widget.CardView>

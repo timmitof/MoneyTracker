@@ -43,11 +43,12 @@ class AddIncomeFragment : Fragment(), IAddIncomeFragmentView {
         setCustomSpinner()
 
         binding.addIncomeBtn.setOnClickListener {
-            if (binding.descriptionIncome.text.isNullOrBlank() || binding.sumIncome.text.isNullOrBlank()) {
+            if (binding.sumIncome.text.isNullOrBlank()) {
                 Toast.makeText(requireContext(), "Заполните поля!", Toast.LENGTH_SHORT).show()
             } else {
                 presenter.addIncome(categoryName, TypeEnum.Income.ordinal, categoryImage, binding.descriptionIncome.text?.toString(), binding.sumIncome.text.toString().toInt())
                 Toast.makeText(requireContext(), "Добавлено", Toast.LENGTH_SHORT).show()
+                findNavController().navigateUp()
             }
         }
     }

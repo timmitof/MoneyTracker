@@ -49,14 +49,17 @@ class TransactionsFragment : Fragment(), ITransactionFragment {
         incomeSortBtn.setOnClickListener {
             val adapterIncome = dbTransaction?.getAllIncomeList()?.let { HistoryAdapter(it) }
             binding.transactionsRecyclerView.adapter = adapterIncome
+            dialog.dismiss()
         }
         expenseSortBtn.setOnClickListener {
             val adapterExpense = dbTransaction?.getAllExpenseList()?.let { HistoryAdapter(it) }
             binding.transactionsRecyclerView.adapter = adapterExpense
+            dialog.dismiss()
         }
         clearBtn.setOnClickListener {
             val adapterGetAll = dbTransaction?.getAllTransaction()?.let { HistoryAdapter(it) }
             binding.transactionsRecyclerView.adapter = adapterGetAll
+            dialog.dismiss()
         }
 
         dialog.setContentView(view)

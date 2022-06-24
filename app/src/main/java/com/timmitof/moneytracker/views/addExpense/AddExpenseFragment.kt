@@ -41,7 +41,7 @@ class AddExpenseFragment : Fragment(), IAddExpenseFragmentView {
         setCustomSpinner()
 
         binding.addExpenseBtn.setOnClickListener {
-            if (binding.sumExpense.text.isNullOrBlank() || binding.descriptionExpense.text.isNullOrBlank()) {
+            if (binding.sumExpense.text.isNullOrBlank()) {
                 Toast.makeText(requireContext(), "Заполните поля!", Toast.LENGTH_SHORT).show()
             } else {
                 presenter.addExpense(categoryName, TypeEnum.Expense.ordinal, categoryImage, binding.descriptionExpense.text?.toString(), binding.sumExpense.text.toString().toInt())
