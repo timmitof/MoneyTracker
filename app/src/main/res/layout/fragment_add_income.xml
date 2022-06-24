@@ -39,6 +39,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginEnd="50dp"
             android:hint="Описание"
+            app:boxStrokeColor="@color/violet100"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinner_category">
