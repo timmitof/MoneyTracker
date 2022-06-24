@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/violet100"
+    android:background="@color/violet40"
     tools:context=".views.splash.SplashFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/Title_X"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Timmitof"
-        android:textColor="@color/light100"
+        android:src="@drawable/ic_logo"
+        android:padding="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
