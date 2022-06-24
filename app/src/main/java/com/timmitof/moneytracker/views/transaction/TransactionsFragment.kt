@@ -30,6 +30,9 @@ class TransactionsFragment : Fragment(), ITransactionFragment {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val dbTransaction = App.instance?.getDatabase()?.TransactionDao()
+        val adapter = dbTransaction?.getAllTransaction()?.let { HistoryAdapter(it) }
+        binding.transactionsRecyclerView.adapter = adapter
         binding.filterButton.setOnClickListener {
             setBottomSheetDialog()
         }
@@ -37,8 +40,6 @@ class TransactionsFragment : Fragment(), ITransactionFragment {
 
     override fun setBottomSheetDialog() {
         val dbTransaction = App.instance?.getDatabase()?.TransactionDao()
-        val adapter = dbTransaction?.getAllTransaction()?.let { HistoryAdapter(it) }
-        binding.transactionsRecyclerView.adapter = adapter
 
         val dialog = BottomSheetDialog(requireContext())
         val view = layoutInflater.inflate(R.layout.bottom_sheet_filter, null)
@@ -54,7 +55,8 @@ class TransactionsFragment : Fragment(), ITransactionFragment {
             binding.transactionsRecyclerView.adapter = adapterExpense
         }
         clearBtn.setOnClickListener {
-            binding.transactionsRecyclerView.adapter = adapter
+            val adapterGetAll = dbTransaction?.getAllTransaction()?.let { HistoryAdapter(it) }
+            binding.transactionsRecyclerView.adapter = adapterGetAll
         }
 
         dialog.setContentView(view)

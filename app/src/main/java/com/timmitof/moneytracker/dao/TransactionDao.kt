@@ -14,10 +14,10 @@ interface TransactionDao {
     @Query("SELECT * FROM `Transaction`")
     fun getAllTransaction(): List<Transaction>
 
-    @Query("SELECT * FROM `Transaction` WHERE category = 0")
+    @Query("SELECT * FROM `Transaction` WHERE type = 0")
     fun getAllIncomeList(): List<Transaction>
 
-    @Query("SELECT * FROM `Transaction` WHERE category = 1")
+    @Query("SELECT * FROM `Transaction` WHERE type = 1")
     fun getAllExpenseList(): List<Transaction>
 
     @Query("SELECT SUM(sum) FROM `Transaction`")
