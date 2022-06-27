@@ -120,12 +120,12 @@
         <entry key="app/src/main/res/layout/fragment_choose_type_category.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_delete_category.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/layout/fragment_first_on_boarding.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28175659179687496" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20508326029798424" />
         <entry key="app/src/main/res/layout/fragment_on_boarding.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3021331787109375" />
         <entry key="app/src/main/res/layout/fragment_report.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/fragment_second_on_boarding.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.33508148193359377" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_third__on_boarding.xml" value="0.14387031408308004" />
         <entry key="app/src/main/res/layout/fragment_third_on_boarding.xml" value="0.15070921985815602" />
