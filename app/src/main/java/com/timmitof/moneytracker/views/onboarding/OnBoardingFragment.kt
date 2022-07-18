@@ -1,7 +1,6 @@
 package com.timmitof.moneytracker.views.onboarding
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,7 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.timmitof.moneytracker.Constants
 import com.timmitof.moneytracker.R
@@ -38,27 +38,33 @@ class OnBoardingFragment : Fragment(), IOnBoardingFragmentView {
         super.onViewCreated(view, savedInstanceState)
         setViewPager()
         setCurrentIndicators(0)
-        binding.nextFab.setOnClickListener {
-            presenter.startActivity(requireActivity(), HomeActivity())
-        }
     }
 
     override fun setViewPager() {
         val adapter = OnBoardingItemAdapter(Constants.onBoardingList)
-        binding.onboardingViewpager.adapter = adapter
-        binding.onboardingViewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        val viewpager = binding.onboardingViewpager
+        viewpager.adapter = adapter
+        viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 setCurrentIndicators(position)
             }
+        })
+
+        binding.nextFab.setOnClickListener {
+            if (viewpager.currentItem + 1 < adapter.itemCount) {
+                viewpager.currentItem += 1
+            } else {
+                presenter.startActivity(requireActivity(), HomeActivity())
+            }
         }
-        )
 
         indicatorsContainer = binding.indicatorsContainer
         val indicators = arrayOfNulls<ImageView>(adapter.itemCount)
-        val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
-        layoutParams.setMargins(8,0,8,0)
-        for(i in indicators.indices) {
+        val layoutParams: LinearLayout.LayoutParams =
+            LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+        layoutParams.setMargins(8, 0, 8, 0)
+        for (i in indicators.indices) {
             indicators[i] = ImageView(requireContext())
             indicators[i]?.let {
                 it.setImageDrawable(
@@ -75,7 +81,7 @@ class OnBoardingFragment : Fragment(), IOnBoardingFragmentView {
 
     private fun setCurrentIndicators(position: Int) {
         val childCount = indicatorsContainer.childCount
-        for(i in 0 until childCount){
+        for (i in 0 until childCount) {
             val imageView = indicatorsContainer.getChildAt(i) as ImageView
             if (i == position) {
                 imageView.setImageDrawable(

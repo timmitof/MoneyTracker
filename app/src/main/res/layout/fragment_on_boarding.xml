@@ -6,13 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/violet100"
     tools:context=".views.onboarding.OnBoardingFragment">
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/onboarding_viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/view_pager_bg"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:overScrollMode="never"
+        android:paddingBottom="60dp"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

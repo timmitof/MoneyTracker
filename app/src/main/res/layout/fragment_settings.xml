@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light40"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.settings.SettingsFragment">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:text="Настройки"
+        android:text="@string/settings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,27 +24,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="30dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
-        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/add_category_layout"
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
+
                 <TextView
                     style="@style/Regular_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="30dp"
-                    android:text="Добавить категории"
+                    android:layout_marginStart="30dp"
+                    android:text="@string/add_category"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -55,16 +58,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:visibility="gone">
+
                 <TextView
                     style="@style/Regular_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="30dp"
-                    android:text="Доход"
-                    android:gravity="center"
+                    android:layout_marginStart="30dp"
                     android:drawablePadding="10dp"
-                    android:drawableTint="@color/green100"
-                    android:drawableStart="@drawable/finance_ic_income"
+                    android:gravity="center"
+                    android:text="@string/income"
+                    app:drawableStartCompat="@drawable/finance_ic_income"
+                    app:drawableTint="@color/green100"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -75,16 +79,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:visibility="gone">
+
                 <TextView
                     style="@style/Regular_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="30dp"
-                    android:text="Расход"
-                    android:gravity="center"
+                    android:layout_marginStart="30dp"
                     android:drawablePadding="10dp"
-                    android:drawableTint="@color/red100"
-                    android:drawableStart="@drawable/finance_ic_expense"
+                    android:gravity="center"
+                    android:text="@string/expense"
+                    app:drawableStartCompat="@drawable/finance_ic_expense"
+                    app:drawableTint="@color/red100"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -96,8 +101,8 @@
         android:id="@+id/change_theme_card"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
@@ -113,8 +118,8 @@
                 style="@style/Regular_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:text="Сменить тему"
+                android:layout_marginStart="30dp"
+                android:text="@string/change_theme"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -123,10 +128,10 @@
                 android:id="@+id/change_theme"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_margin="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/theme_selector"
                 android:button="@null"
                 android:clickable="true"
-                android:background="@drawable/theme_selector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -137,21 +142,22 @@
         android:id="@+id/delete_category_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
+        app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/change_theme_card">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
+                android:id="@+id/delete_category_layout"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -159,12 +165,12 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/textView5"
                     style="@style/Regular_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="30dp"
-                    android:text="Удалить категории"
+                    android:layout_marginStart="30dp"
+                    android:text="@string/delete_category"
+                    android:textColor="@color/dark75"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -175,11 +181,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
+                android:overScrollMode="never"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_delete_category"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/delete_category_layout"
+                tools:listitem="@layout/item_delete_category" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
