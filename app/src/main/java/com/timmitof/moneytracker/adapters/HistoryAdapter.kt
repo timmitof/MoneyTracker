@@ -8,6 +8,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.recyclerview.widget.RecyclerView
+import com.timmitof.moneytracker.Constants.Companion.currency
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.databinding.ItemTransactionsBinding
 import com.timmitof.moneytracker.models.Transaction
@@ -26,21 +27,17 @@ class HistoryAdapter(private val array: List<Transaction>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = array[position]
         if (item.type == 0) {
-            holder.binding.let {
-                it.transactionsTitle.text = item.category
-                it.transactionsImage.setImageResource(item.image!!)
-                it.transactionsImage.setColorFilter(holder.itemView.resources.getColor(R.color.green100))
-                it.transactionsSum.text = item.sum.toString()
-                it.transactionsSum.setTextColor(holder.itemView.resources.getColor(R.color.green100))
-            }
+            holder.binding.transactionsTitle.text = item.category
+            holder.binding.transactionsImage.setImageResource(item.image!!)
+            holder.binding.transactionsImage.setColorFilter(holder.itemView.resources.getColor(R.color.green100))
+            holder.binding.transactionsSum.text = "${item.sum} $currency"
+            holder.binding.transactionsSum.setTextColor(holder.itemView.resources.getColor(R.color.green100))
         } else {
-            holder.binding.let {
-                it.transactionsTitle.text = item.category
-                it.transactionsImage.setImageResource(item.image!!)
-                it.transactionsImage.setColorFilter(holder.itemView.resources.getColor(R.color.red100))
-                it.transactionsSum.text = item.sum.toString()
-                it.transactionsSum.setTextColor(holder.itemView.resources.getColor(R.color.red100))
-            }
+            holder.binding.transactionsTitle.text = item.category
+            holder.binding.transactionsImage.setImageResource(item.image!!)
+            holder.binding.transactionsImage.setColorFilter(holder.itemView.resources.getColor(R.color.red100))
+            holder.binding.transactionsSum.text = "${item.sum} $currency"
+            holder.binding.transactionsSum.setTextColor(holder.itemView.resources.getColor(R.color.red100))
         }
     }
 

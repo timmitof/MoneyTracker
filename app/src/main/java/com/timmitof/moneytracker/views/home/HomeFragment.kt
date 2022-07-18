@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.timmitof.moneytracker.App
+import com.timmitof.moneytracker.Constants.Companion.currency
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.HomeAdapter
 import com.timmitof.moneytracker.databinding.FragmentHomeBinding
@@ -45,10 +46,10 @@ class HomeFragment : Fragment(), IHomeFragmentView {
         val dbTransaction = App.instance?.getDatabase()?.TransactionDao()
         val income = dbTransaction?.getAllIncome()
         val expense = dbTransaction?.getAllExpense()
-        val balance = "${income!! - expense!!}"
+        val balance = "${income!! - expense!!} $currency"
         binding.balanceSum.text = balance
-        binding.expenseSum.text = expense.toString()
-        binding.incomeSum.text = income.toString()
+        binding.expenseSum.text = "$expense $currency"
+        binding.incomeSum.text = "$income $currency"
 
         binding.addIncomeFab.setOnClickListener {
             findNavController().navigate(R.id.addIncomeFragment)

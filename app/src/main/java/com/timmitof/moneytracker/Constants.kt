@@ -5,6 +5,8 @@ import com.timmitof.moneytracker.models.OnBoardingItem
 
 class Constants {
     companion object{
+        const val currency = "KGS"
+
         val iconArray = arrayListOf(
             Icons(R.drawable.category_ic_airplane),
             Icons(R.drawable.category_ic_baby_bottle),

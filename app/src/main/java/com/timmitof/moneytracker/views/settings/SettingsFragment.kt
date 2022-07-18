@@ -4,15 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.timmitof.moneytracker.App
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.DeleteCategoryAdapter
+import com.timmitof.moneytracker.adapters.SpinnerCategoryAdapter
 import com.timmitof.moneytracker.databinding.FragmentSettingsBinding
 import com.timmitof.moneytracker.models.Category
+import com.timmitof.moneytracker.models.TypeEnum
 import com.timmitof.moneytracker.presenters.profile.IProfilePresenter
 import com.timmitof.moneytracker.presenters.profile.ProfilePresenter
+import com.timmitof.moneytracker.storage.SharedPreference
 
 class SettingsFragment : Fragment(), ISettingsFragmentView {
     private var _binding: FragmentSettingsBinding? = null
@@ -32,33 +37,34 @@ class SettingsFragment : Fragment(), ISettingsFragmentView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setRecyclerDelete()
-        binding.addCategoryCard.setOnClickListener {
-            visibleChange(binding.incomeCategoryLayout, binding.expenseCategoryLayout)
+        binding.addCategoryLayout.setOnClickListener {
+            if (binding.addIncomeLayout.visibility == View.GONE && binding.addExpenseLayout.visibility == View.GONE) {
+                binding.addIncomeLayout.visibility = View.VISIBLE
+                binding.addExpenseLayout.visibility = View.VISIBLE
+            } else {
+                binding.addIncomeLayout.visibility = View.GONE
+                binding.addExpenseLayout.visibility = View.GONE
+            }
         }
         binding.deleteCategoryCard.setOnClickListener {
-            visibleChange(binding.deleteCategoryRecycler, null)
+            if (binding.deleteCategoryRecycler.visibility == View.GONE) {
+                binding.deleteCategoryRecycler.visibility = View.VISIBLE
+            } else {
+                binding.deleteCategoryRecycler.visibility = View.GONE
+            }
         }
-        binding.incomeCategoryLayout.setOnClickListener {
-            findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToAddCategoryFragment(0))
+
+        binding.addIncomeLayout.setOnClickListener {
+            findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToAddCategoryFragment(TypeEnum.Income.ordinal))
         }
-        binding.expenseCategoryLayout.setOnClickListener {
-            findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToAddCategoryFragment(1))
+        binding.addExpenseLayout.setOnClickListener{
+            findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToAddCategoryFragment(TypeEnum.Expense.ordinal))
         }
     }
 
     override fun setRecyclerDelete() {
         val dbCategory = App.instance?.getDatabase()?.CategoryDao()
-        val adapter = DeleteCategoryAdapter(dbCategory?.getAllCategory() as ArrayList<Category>)
+        val adapter = dbCategory?.getAllCategory()?.let { DeleteCategoryAdapter(it as ArrayList<Category>) }
         binding.deleteCategoryRecycler.adapter = adapter
-    }
-
-    override fun visibleChange(view: View, view2: View?) {
-        if (view.visibility == View.GONE || view2?.visibility == View.GONE) {
-            view.visibility = View.VISIBLE
-            view2?.visibility = View.VISIBLE
-        } else {
-            view.visibility = View.GONE
-            view2?.visibility = View.GONE
-        }
     }
 }

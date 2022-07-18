@@ -3,6 +3,7 @@ package com.timmitof.moneytracker.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.timmitof.moneytracker.Constants.Companion.currency
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.databinding.ItemTransactionsBinding
 import com.timmitof.moneytracker.models.Transaction
@@ -22,13 +23,13 @@ class HomeAdapter(private val array: List<Transaction>):RecyclerView.Adapter<Hom
             holder.binding.transactionsTitle.text = item.category
             holder.binding.transactionsImage.setImageResource(item.image!!)
             holder.binding.transactionsImage.setColorFilter(holder.itemView.resources.getColor(R.color.green100))
-            holder.binding.transactionsSum.text = item.sum.toString()
+            holder.binding.transactionsSum.text = "${item.sum} $currency"
             holder.binding.transactionsSum.setTextColor(holder.itemView.resources.getColor(R.color.green100))
         } else {
             holder.binding.transactionsTitle.text = item.category
             holder.binding.transactionsImage.setImageResource(item.image!!)
             holder.binding.transactionsImage.setColorFilter(holder.itemView.resources.getColor(R.color.red100))
-            holder.binding.transactionsSum.text = item.sum.toString()
+            holder.binding.transactionsSum.text = "${item.sum} $currency"
             holder.binding.transactionsSum.setTextColor(holder.itemView.resources.getColor(R.color.red100))
         }
     }

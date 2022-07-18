@@ -1,14 +1,10 @@
 # MoneyTracker
 
-
 Мобильное приложение - позволяющее записывать расходы/доходы и смотреть истории расходов и доходов, 
 с добавлением/удалением категории с большим выбором иконок
 
-_____
-
 
 ## UI
-
 
 ***On Boarding***
 
@@ -18,26 +14,22 @@ _____
 
 _____
 
-
 ***Main***
 
-![Home](https://user-images.githubusercontent.com/81027444/175551380-eff8f264-9c12-4d9a-90f9-2074e44a1c3b.png)
-![History](https://user-images.githubusercontent.com/81027444/175551796-484a9ac3-6b93-47fa-b3fb-190307cb974c.png)
+![Home](https://user-images.githubusercontent.com/81027444/175460336-a88a7266-a942-4bf5-b614-02fd1a7341c4.png)
+![History](https://user-images.githubusercontent.com/81027444/175460412-266596d6-0907-462c-b1a3-a0a50f60d702.png)
 ![Settings](https://user-images.githubusercontent.com/81027444/175460495-32d27dfd-4b51-401a-8952-69e3dbdb3dd2.png)
-
 ____
-
-![Filter](https://user-images.githubusercontent.com/81027444/175552435-8c93f0cb-f692-4a09-83d3-aa065fced98e.png)
-![Add category dialog](https://user-images.githubusercontent.com/81027444/175552625-13fb835c-aa24-4005-9350-3ea2ec9cb033.png)
+![Filter](https://user-images.githubusercontent.com/81027444/175460733-e961b29f-c36d-4f17-ba12-56be23819fa7.png)
+![Add category Dialog](https://user-images.githubusercontent.com/81027444/175460927-dc728c29-3f1a-4b42-b336-f8fb602ba9c4.png)
 ![Delete category](https://user-images.githubusercontent.com/81027444/175461301-a174c9e8-8245-4fda-97d7-3412dd7eae4c.png)
 
 
 ![Add category](https://user-images.githubusercontent.com/81027444/175461022-f763fd93-db4e-4872-81e7-a25633af3789.png)
-![Add category dialog](https://user-images.githubusercontent.com/81027444/175552981-a5c54edd-f9a0-4b16-9d7c-d6563bf336ed.png)
+![Add icon diaolg](https://user-images.githubusercontent.com/81027444/175461132-e54ff876-0785-4a9b-b2aa-538302b1be91.png)
 ![Added category](https://user-images.githubusercontent.com/81027444/175461628-7cda3306-95dd-444b-aa84-9b96c8e0fbdc.png)
 
 ____
-
 
 ## Построено с 
 

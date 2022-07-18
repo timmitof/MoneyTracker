@@ -31,18 +31,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/add_category_layout"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
+                android:layout_height="60dp">
                 <TextView
                     style="@style/Regular_2"
                     android:layout_width="wrap_content"
@@ -54,70 +50,46 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/add_income_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/add_category_layout">
-                <LinearLayout
-                    android:id="@+id/income_category_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
+                android:layout_height="60dp"
+                android:visibility="gone">
+                <TextView
+                    style="@style/Regular_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:text="Доход"
+                    android:gravity="center"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/green100"
+                    android:drawableStart="@drawable/finance_ic_income"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/view_bg"
-                        android:backgroundTint="@color/green20"
-                        android:src="@drawable/finance_ic_income"
-                        android:layout_marginStart="20dp"
-                        android:padding="7dp"
-                        app:tint="@color/green100" />
-
-                    <TextView
-                        style="@style/Regular_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:textSize="14sp"
-                        android:layout_gravity="center"
-                        android:text="Доходы" />
-                </LinearLayout>
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:id="@+id/expense_category_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone"
-                    android:layout_marginBottom="10dp"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/view_bg"
-                        android:backgroundTint="@color/red20"
-                        android:src="@drawable/finance_ic_expense"
-                        android:layout_marginStart="20dp"
-                        android:padding="7dp"
-                        app:tint="@color/red100" />
-
-                    <TextView
-                        style="@style/Regular_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_gravity="center"
-                        android:textSize="14sp"
-                        android:text="Расходы" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/add_expense_layout"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:visibility="gone">
+                <TextView
+                    style="@style/Regular_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:text="Расход"
+                    android:gravity="center"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/red100"
+                    android:drawableStart="@drawable/finance_ic_expense"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -207,7 +179,6 @@
                 tools:listitem="@layout/item_delete_category"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginBottom="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
