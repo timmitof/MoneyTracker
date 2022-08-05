@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue100"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".views.addCategory.AddCategoryFragment">
+    tools:context=".views.fragments.category.AddCategoryFragment">
 
     <include
         android:id="@+id/top_navigation"

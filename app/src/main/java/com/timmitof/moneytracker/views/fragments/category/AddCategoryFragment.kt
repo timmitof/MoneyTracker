@@ -1,13 +1,10 @@
-package com.timmitof.moneytracker.views.addCategory
+package com.timmitof.moneytracker.views.fragments.category
 
-import android.app.StatusBarManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -18,29 +15,24 @@ import com.timmitof.moneytracker.Constants
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.ChooseIconAdapter
 import com.timmitof.moneytracker.databinding.FragmentAddCategoryBinding
-import com.timmitof.moneytracker.presenters.category.CategoryPresenter
-import com.timmitof.moneytracker.presenters.category.ICategoryPresenter
+import com.timmitof.moneytracker.views.BaseFragment
 
-class AddCategoryFragment : Fragment(), IAddCategoryFragmentView {
+class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding>(), CategoryContract.View {
     private val args: AddCategoryFragmentArgs by navArgs()
 
-    private var _binding: FragmentAddCategoryBinding? = null
-    private val binding get() = _binding!!
-    private lateinit var presenter: ICategoryPresenter
+    private lateinit var presenter: CategoryContract.Presenter
     private var imageUrl: Int? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentAddCategoryBinding.inflate(inflater, container, false)
-        presenter = CategoryPresenter(this)
-        return binding.root
-    }
+    override fun getViewBinding() = FragmentAddCategoryBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter = CategoryPresenter(this)
         setTopNavigation()
+        setupView()
+    }
+
+    private fun setupView() {
         binding.addCategoryImage.setOnClickListener {
             setAlertDialog()
         }

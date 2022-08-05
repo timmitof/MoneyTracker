@@ -1,4 +1,4 @@
-package com.timmitof.moneytracker.views.transaction
+package com.timmitof.moneytracker.views.fragments.transaction
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,30 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.timmitof.moneytracker.App
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.HistoryAdapter
 import com.timmitof.moneytracker.databinding.FragmentTransactionsBinding
-import com.timmitof.moneytracker.models.TypeEnum
-import com.timmitof.moneytracker.views.settings.SettingsFragmentDirections
+import com.timmitof.moneytracker.views.BaseFragment
 
 
-class TransactionsFragment : Fragment(), ITransactionFragment {
-    private var _binding: FragmentTransactionsBinding? = null
-    private val binding get() = _binding!!
+class TransactionsFragment : BaseFragment<FragmentTransactionsBinding>(), ITransactionFragment {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentTransactionsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    override fun getViewBinding() = FragmentTransactionsBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupView()
+    }
+
+    private fun setupView() {
         val dbTransaction = App.instance?.getDatabase()?.TransactionDao()
         val adapter = dbTransaction?.getAllTransaction()?.let { HistoryAdapter(it) }
         binding.transactionsRecyclerView.adapter = adapter
@@ -65,5 +59,4 @@ class TransactionsFragment : Fragment(), ITransactionFragment {
         dialog.setContentView(view)
         dialog.show()
     }
-
 }

@@ -1,4 +1,4 @@
-package com.timmitof.moneytracker.views.splash
+package com.timmitof.moneytracker.views.fragments.splash
 
 import android.os.Bundle
 import android.os.Handler

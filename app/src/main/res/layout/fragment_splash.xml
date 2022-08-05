@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/violet80"
-    tools:context=".views.splash.SplashFragment">
+    tools:context=".views.fragments.splash.SplashFragment">
 
     <TextView
-        style="@style/Title_X"
+        style="@style/splash_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Money\nTracker"
+        android:gravity="center"
+        android:fontFamily="@font/shrikhand_regular"
         android:textColor="@color/light100"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

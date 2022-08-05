@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.timmitof.moneytracker.views.home.HomeFragment"
+        android:name="com.timmitof.moneytracker.views.fragments.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/transactionsFragment"
-        android:name="com.timmitof.moneytracker.views.transaction.TransactionsFragment"
+        android:name="com.timmitof.moneytracker.views.fragments.transaction.TransactionsFragment"
         android:label="fragment_transactions"
         tools:layout="@layout/fragment_transactions" />
     <fragment
         android:id="@+id/addCategoryFragment"
-        android:name="com.timmitof.moneytracker.views.addCategory.AddCategoryFragment"
+        android:name="com.timmitof.moneytracker.views.fragments.category.AddCategoryFragment"
         android:label="fragment_add_category"
         tools:layout="@layout/fragment_add_category" >
         <argument
@@ -26,17 +26,17 @@
     </fragment>
     <fragment
         android:id="@+id/addExpenseFragment"
-        android:name="com.timmitof.moneytracker.views.addExpense.AddExpenseFragment"
+        android:name="com.timmitof.moneytracker.views.fragments.expense.AddExpenseFragment"
         android:label="fragment_add_expense"
         tools:layout="@layout/fragment_add_expense" />
     <fragment
         android:id="@+id/addIncomeFragment"
-        android:name="com.timmitof.moneytracker.views.addIncome.AddIncomeFragment"
+        android:name="com.timmitof.moneytracker.views.fragments.income.AddIncomeFragment"
         android:label="fragment_add_income"
         tools:layout="@layout/fragment_add_income" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.timmitof.moneytracker.views.settings.SettingsFragment"
+        android:name="com.timmitof.moneytracker.views.fragments.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
         <action

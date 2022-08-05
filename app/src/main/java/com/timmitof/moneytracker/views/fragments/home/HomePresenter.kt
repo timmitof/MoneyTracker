@@ -1,19 +1,16 @@
-package com.timmitof.moneytracker.presenters.home
+package com.timmitof.moneytracker.views.fragments.home
 
-import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.timmitof.moneytracker.R
-import com.timmitof.moneytracker.helpers.ActivityUtils
-import com.timmitof.moneytracker.views.home.IHomeFragmentView
 
-class HomePresenter(val view: IHomeFragmentView, val context: Context): IHomePresenter {
+class HomePresenter(val view: HomeContract.View, val context: Context): HomeContract.Presenter {
     var clicked = false
 
-    override fun addFabOnClick(context: Context, incomeFab: FloatingActionButton, expenseFab: FloatingActionButton, addFab: FloatingActionButton) {
+    override fun addFabOnClick(incomeFab: FloatingActionButton, expenseFab: FloatingActionButton, addFab: FloatingActionButton) {
         setVisibility(clicked, incomeFab, expenseFab)
         setAnimation(clicked, incomeFab, expenseFab, addFab)
         clicked = !clicked

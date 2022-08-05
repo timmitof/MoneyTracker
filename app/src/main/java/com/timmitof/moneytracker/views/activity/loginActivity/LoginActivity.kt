@@ -1,4 +1,4 @@
-package com.timmitof.moneytracker.views.loginActivity
+package com.timmitof.moneytracker.views.activity.loginActivity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

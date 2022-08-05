@@ -1,55 +1,48 @@
-package com.timmitof.moneytracker.views.addIncome
+package com.timmitof.moneytracker.views.fragments.income
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.timmitof.moneytracker.App
-import com.timmitof.moneytracker.Constants
-import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.SpinnerCategoryAdapter
 import com.timmitof.moneytracker.databinding.FragmentAddIncomeBinding
 import com.timmitof.moneytracker.models.Category
-import com.timmitof.moneytracker.models.Transaction
 import com.timmitof.moneytracker.models.TypeEnum
-import com.timmitof.moneytracker.presenters.income.IIncomePresenter
-import com.timmitof.moneytracker.presenters.income.IncomePresenter
+import com.timmitof.moneytracker.views.BaseFragment
 
-class AddIncomeFragment : Fragment(), IAddIncomeFragmentView {
-    private var _binding: FragmentAddIncomeBinding? = null
-    private val binding get() = _binding!!
-    private lateinit var presenter: IIncomePresenter
+class AddIncomeFragment : BaseFragment<FragmentAddIncomeBinding>(), IncomeContract.View {
+    private lateinit var presenter: IncomeContract.Presenter
     private lateinit var categoryName: String
     private var categoryImage: Int = 0
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentAddIncomeBinding.inflate(inflater, container, false)
-        presenter = IncomePresenter(this)
-        return binding.root
-    }
+    override fun getViewBinding() = FragmentAddIncomeBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter = IncomePresenter(this)
         setTopNavigation()
         setCustomSpinner()
+        setupView()
+    }
 
+    private fun setupView() {
         binding.addIncomeBtn.setOnClickListener {
-            if (binding.sumIncome.text.isNullOrBlank()) {
-                Toast.makeText(requireContext(), "Заполните поля!", Toast.LENGTH_SHORT).show()
-            } else {
-                presenter.addIncome(categoryName, TypeEnum.Income.ordinal, categoryImage, binding.descriptionIncome.text?.toString(), binding.sumIncome.text.toString().toInt())
-                Toast.makeText(requireContext(), "Добавлено", Toast.LENGTH_SHORT).show()
-                findNavController().navigateUp()
-            }
+            val sum = binding.sumIncome.text.toString()
+            val description = binding.descriptionIncome.text.toString()
+            presenter.addIncome(category = categoryName,
+                type = TypeEnum.Income.ordinal,
+                image = categoryImage,
+                description = description,
+                sum = sum,
+                result = { text, navigate ->
+                    Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
+                    if (navigate) findNavController().navigateUp()
+                })
         }
     }
 
@@ -62,18 +55,25 @@ class AddIncomeFragment : Fragment(), IAddIncomeFragmentView {
 
     override fun setCustomSpinner() {
         val dbCategory = App.instance?.getDatabase()?.CategoryDao()
-        val adapter = dbCategory?.getAllCategoryIncome()?.let { SpinnerCategoryAdapter(requireContext(), it) }
+        val adapter =
+            dbCategory?.getAllCategoryIncome()?.let { SpinnerCategoryAdapter(requireContext(), it) }
         binding.spinnerCategory.adapter = adapter
 
-        binding.spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                val item = parent?.getItemAtPosition(position) as Category
-                categoryName = item.name
-                categoryImage = item.icon!!
-            }
+        binding.spinnerCategory.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    p1: View?,
+                    position: Int,
+                    p3: Long
+                ) {
+                    val item = parent?.getItemAtPosition(position) as Category
+                    categoryName = item.name
+                    categoryImage = item.icon!!
+                }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                }
             }
-        }
     }
 }

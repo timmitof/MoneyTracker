@@ -121,6 +121,7 @@
         <entry key="app/src/main/res/drawable/user_interface_ic_edit.xml" value="0.30277777777777776" />
         <entry key="app/src/main/res/drawable/variant_gain_total_control_of_your_money.xml" value="0.30277777777777776" />
         <entry key="app/src/main/res/drawable/view_bg.xml" value="0.2953703703703704" />
+        <entry key="app/src/main/res/drawable/view_bottom_round_bg.xml" value="0.151" />
         <entry key="app/src/main/res/drawable/view_pager_bg.xml" value="0.30277777777777776" />
         <entry key="app/src/main/res/drawable/view_top_round_bg.xml" value="0.2953703703703704" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
@@ -137,7 +138,7 @@
         <entry key="app/src/main/res/layout/fragment_choose_type_category.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_delete_category.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/layout/fragment_first_on_boarding.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20508326029798424" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.34081902245706736" />
         <entry key="app/src/main/res/layout/fragment_on_boarding.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3021331787109375" />
         <entry key="app/src/main/res/layout/fragment_report.xml" value="0.14361702127659576" />
@@ -151,7 +152,7 @@
         <entry key="app/src/main/res/layout/item_delete_category.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_fab_btn.xml" value="0.16304347826086957" />
         <entry key="app/src/main/res/layout/item_onboarding_viewpager.xml" value="0.16304347826086957" />
-        <entry key="app/src/main/res/layout/item_transactions.xml" value="0.4925925925925926" />
+        <entry key="app/src/main/res/layout/item_transactions.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_choose_category.xml" value="0.3121085125467052" />
         <entry key="app/src/main/res/layout/onboarding_item_container.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/recent_transactions_item_cell.xml" value="0.33" />

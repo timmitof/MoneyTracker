@@ -7,7 +7,7 @@ import com.timmitof.moneytracker.App
 import com.timmitof.moneytracker.databinding.ItemDeleteCategoryBinding
 import com.timmitof.moneytracker.models.Category
 
-class DeleteCategoryAdapter(private val array: ArrayList<Category>): RecyclerView.Adapter<DeleteCategoryAdapter.ViewHolder>() {
+class DeleteCategoryAdapter(private val array: ArrayList<Category>, private val deleteClicked : (Category) -> Unit): RecyclerView.Adapter<DeleteCategoryAdapter.ViewHolder>() {
     class ViewHolder(val binding: ItemDeleteCategoryBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,7 +22,7 @@ class DeleteCategoryAdapter(private val array: ArrayList<Category>): RecyclerVie
             it.transactionsImage.setImageResource(item.icon!!)
             it.transactionsTitle.text = item.name
             it.deleteBtn.setOnClickListener {
-                App.instance?.getDatabase()?.CategoryDao()?.deleteCategory(Category(item.id, item.name, item.icon, item.type))
+                deleteClicked.invoke(item)
                 array.remove(item)
                 notifyItemRemoved(position)
                 notifyDataSetChanged()

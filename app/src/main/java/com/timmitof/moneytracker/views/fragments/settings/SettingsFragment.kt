@@ -1,70 +1,54 @@
-package com.timmitof.moneytracker.views.settings
+package com.timmitof.moneytracker.views.fragments.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.timmitof.moneytracker.App
-import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.DeleteCategoryAdapter
-import com.timmitof.moneytracker.adapters.SpinnerCategoryAdapter
 import com.timmitof.moneytracker.databinding.FragmentSettingsBinding
 import com.timmitof.moneytracker.models.Category
 import com.timmitof.moneytracker.models.TypeEnum
-import com.timmitof.moneytracker.presenters.profile.IProfilePresenter
-import com.timmitof.moneytracker.presenters.profile.ProfilePresenter
-import com.timmitof.moneytracker.storage.SharedPreference
+import com.timmitof.moneytracker.views.*
 
-class SettingsFragment : Fragment(), ISettingsFragmentView {
-    private var _binding: FragmentSettingsBinding? = null
-    private val binding get() = _binding!!
+class SettingsFragment : BaseFragment<FragmentSettingsBinding>(), SettingsContract.View {
 
-    private lateinit var presenter: IProfilePresenter
+    private lateinit var presenter: SettingsContract.Presenter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        presenter = ProfilePresenter(this)
-        return binding.root
-    }
+    override fun getViewBinding() = FragmentSettingsBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter = SettingsPresenter(this)
         setRecyclerDelete()
+        setupView()
+    }
+
+    private fun setupView() {
         binding.addCategoryLayout.setOnClickListener {
-            if (binding.addIncomeLayout.visibility == View.GONE && binding.addExpenseLayout.visibility == View.GONE) {
-                binding.addIncomeLayout.visibility = View.VISIBLE
-                binding.addExpenseLayout.visibility = View.VISIBLE
-            } else {
-                binding.addIncomeLayout.visibility = View.GONE
-                binding.addExpenseLayout.visibility = View.GONE
-            }
+            binding.addIncomeLayout.reverseVisibility()
+            binding.addExpenseLayout.reverseVisibility()
         }
         binding.deleteCategoryCard.setOnClickListener {
-            if (binding.deleteCategoryRecycler.visibility == View.GONE) {
-                binding.deleteCategoryRecycler.visibility = View.VISIBLE
-            } else {
-                binding.deleteCategoryRecycler.visibility = View.GONE
-            }
+            binding.deleteCategoryRecycler.reverseVisibility()
         }
 
         binding.addIncomeLayout.setOnClickListener {
-            findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToAddCategoryFragment(TypeEnum.Income.ordinal))
+            navigateTo(SettingsFragmentDirections.actionSettingsFragmentToAddCategoryFragment(TypeEnum.Income.type))
         }
         binding.addExpenseLayout.setOnClickListener{
-            findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToAddCategoryFragment(TypeEnum.Expense.ordinal))
+            navigateTo(SettingsFragmentDirections.actionSettingsFragmentToAddCategoryFragment(TypeEnum.Expense.type))
         }
     }
 
     override fun setRecyclerDelete() {
         val dbCategory = App.instance?.getDatabase()?.CategoryDao()
-        val adapter = dbCategory?.getAllCategory()?.let { DeleteCategoryAdapter(it as ArrayList<Category>) }
+        val categories = dbCategory?.getAllCategory()
+        val adapter = DeleteCategoryAdapter(categories as ArrayList<Category>) {
+            presenter.deleteCategory(it)
+        }
         binding.deleteCategoryRecycler.adapter = adapter
     }
 }

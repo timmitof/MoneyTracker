@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.timmitof.moneytracker.views.splash.SplashFragment"
+        android:name="com.timmitof.moneytracker.views.fragments.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
-        android:name="com.timmitof.moneytracker.views.onboarding.OnBoardingFragment"
+        android:name="com.timmitof.moneytracker.views.fragments.onboarding.OnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding" />
 </navigation>

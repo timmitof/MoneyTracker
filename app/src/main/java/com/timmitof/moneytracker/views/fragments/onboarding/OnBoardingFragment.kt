@@ -1,4 +1,4 @@
-package com.timmitof.moneytracker.views.onboarding
+package com.timmitof.moneytracker.views.fragments.onboarding
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,15 +14,13 @@ import com.timmitof.moneytracker.Constants
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.OnBoardingItemAdapter
 import com.timmitof.moneytracker.databinding.FragmentOnBoardingBinding
-import com.timmitof.moneytracker.presenters.onboarding.IOnBoardingPresenter
-import com.timmitof.moneytracker.presenters.onboarding.OnBoardingPresenter
-import com.timmitof.moneytracker.views.homeActivity.HomeActivity
+import com.timmitof.moneytracker.views.activity.homeActivity.HomeActivity
 
-class OnBoardingFragment : Fragment(), IOnBoardingFragmentView {
+class OnBoardingFragment : Fragment(), OnBoardingContract.View {
     private var _binding: FragmentOnBoardingBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var presenter: IOnBoardingPresenter
+    private lateinit var presenter: OnBoardingContract.Presenter
     private lateinit var indicatorsContainer: LinearLayout
 
     override fun onCreateView(

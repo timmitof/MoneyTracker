@@ -28,12 +28,14 @@ class HistoryAdapter(private val array: List<Transaction>) :
         val item = array[position]
         if (item.type == 0) {
             holder.binding.transactionsTitle.text = item.category
+            holder.binding.transactionsDescription.text = item.description
             holder.binding.transactionsImage.setImageResource(item.image!!)
             holder.binding.transactionsImage.setColorFilter(holder.itemView.resources.getColor(R.color.green100))
             holder.binding.transactionsSum.text = "${item.sum} $currency"
             holder.binding.transactionsSum.setTextColor(holder.itemView.resources.getColor(R.color.green100))
         } else {
             holder.binding.transactionsTitle.text = item.category
+            holder.binding.transactionsDescription.text = item.description
             holder.binding.transactionsImage.setImageResource(item.image!!)
             holder.binding.transactionsImage.setColorFilter(holder.itemView.resources.getColor(R.color.red100))
             holder.binding.transactionsSum.text = "${item.sum} $currency"

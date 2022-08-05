@@ -1,4 +1,4 @@
-package com.timmitof.moneytracker.views.home
+package com.timmitof.moneytracker.views.fragments.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,30 +11,18 @@ import com.timmitof.moneytracker.Constants.Companion.currency
 import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.HomeAdapter
 import com.timmitof.moneytracker.databinding.FragmentHomeBinding
-import com.timmitof.moneytracker.presenters.home.HomePresenter
-import com.timmitof.moneytracker.presenters.home.IHomePresenter
+import com.timmitof.moneytracker.views.BaseFragment
 
-class HomeFragment : Fragment(), IHomeFragmentView {
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
-    private lateinit var presenter: IHomePresenter
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeContract.View {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        presenter = HomePresenter(this, requireContext())
-        return binding.root
-    }
+    private lateinit var presenter: HomeContract.Presenter
+    override fun getViewBinding() = FragmentHomeBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setRecyclerView()
         setViews()
-        binding.addFab.setOnClickListener {
-            presenter.addFabOnClick(requireContext(), binding.addIncomeFab, binding.addExpenseFab, binding.addFab)
-        }
+        presenter = HomePresenter(this, requireContext())
     }
 
     override fun setRecyclerView() {
@@ -52,10 +40,14 @@ class HomeFragment : Fragment(), IHomeFragmentView {
         binding.incomeSum.text = "$income $currency"
 
         binding.addIncomeFab.setOnClickListener {
-            findNavController().navigate(R.id.addIncomeFragment)
+            navigateTo(R.id.addIncomeFragment)
         }
         binding.addExpenseFab.setOnClickListener {
-            findNavController().navigate(R.id.addExpenseFragment)
+            navigateTo(R.id.addExpenseFragment)
+        }
+
+        binding.addFab.setOnClickListener {
+            presenter.addFabOnClick(binding.addIncomeFab, binding.addExpenseFab, binding.addFab)
         }
     }
 }

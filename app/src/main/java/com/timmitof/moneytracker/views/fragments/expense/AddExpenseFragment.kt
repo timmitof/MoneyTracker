@@ -1,4 +1,4 @@
-package com.timmitof.moneytracker.views.addExpense
+package com.timmitof.moneytracker.views.fragments.expense
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,37 +9,29 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.timmitof.moneytracker.App
-import com.timmitof.moneytracker.R
 import com.timmitof.moneytracker.adapters.SpinnerCategoryAdapter
 import com.timmitof.moneytracker.databinding.FragmentAddExpenseBinding
 import com.timmitof.moneytracker.models.Category
-import com.timmitof.moneytracker.models.Transaction
 import com.timmitof.moneytracker.models.TypeEnum
-import com.timmitof.moneytracker.presenters.expense.ExpensePresenter
-import com.timmitof.moneytracker.presenters.expense.IExpensePresenter
+import com.timmitof.moneytracker.views.BaseFragment
 
-class AddExpenseFragment : Fragment(), IAddExpenseFragmentView {
-    private var _binding: FragmentAddExpenseBinding? = null
-    private val binding get() = _binding!!
-    private lateinit var presenter: IExpensePresenter
+class AddExpenseFragment : BaseFragment<FragmentAddExpenseBinding>(), ExpenseContract.View {
+    private lateinit var presenter: ExpenseContract.Presenter
     private lateinit var categoryName: String
     private var categoryImage: Int = 0
     private lateinit var categoryDescription: String
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentAddExpenseBinding.inflate(inflater, container, false)
-        presenter = ExpensePresenter(this)
-        return binding.root
-    }
+    override fun getViewBinding() = FragmentAddExpenseBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter = ExpensePresenter(this)
         setTopNavigation()
         setCustomSpinner()
+        setupView()
+    }
 
+    private fun setupView() {
         binding.addExpenseBtn.setOnClickListener {
             if (binding.sumExpense.text.isNullOrBlank()) {
                 Toast.makeText(requireContext(), "Заполните поля!", Toast.LENGTH_SHORT).show()
