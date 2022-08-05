@@ -1,8 +1,7 @@
-package com.timmitof.moneytracker.presenters.profile
+package com.timmitof.moneytracker.views.fragments.settings
 
 import android.content.Context
 import com.timmitof.moneytracker.storage.SharedPreference
-import com.timmitof.moneytracker.views.settings.ISettingsFragmentView
 
 class ProfilePresenter(val view: ISettingsFragmentView): IProfilePresenter {
     override fun addProfile(context: Context,name: String) {
