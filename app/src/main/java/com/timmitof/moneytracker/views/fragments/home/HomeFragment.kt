@@ -57,6 +57,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeContract.View {
     private fun setupToolBar() {
         binding.toolbar.title.text = "Главная"
         binding.toolbar.background.setBackgroundResource(R.color.main_info)
-        binding.toolbar.imageButton.visibility = View.GONE
+        binding.toolbar.imageButton.setImageResource(R.drawable.ic_notification)
+        binding.toolbar.imageButton.setColorFilter(R.color.violet100)
     }
 }
