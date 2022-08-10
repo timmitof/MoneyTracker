@@ -27,6 +27,9 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(), SettingsContra
     }
 
     private fun setupView() {
+        binding.toolbar.title.text = "Настройки"
+        binding.toolbar.imageButton.visibility = View.GONE
+
         binding.addCategoryLayout.setOnClickListener {
             binding.addIncomeLayout.reverseVisibility()
             binding.addExpenseLayout.reverseVisibility()

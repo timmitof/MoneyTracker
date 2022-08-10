@@ -43,9 +43,4 @@
             android:id="@+id/action_settingsFragment_to_addCategoryFragment"
             app:destination="@id/addCategoryFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/deleteCategoryFragment"
-        android:name="com.timmitof.moneytracker.views.deleteCategory.DeleteCategoryFragment"
-        android:label="fragment_delete_category"
-        tools:layout="@layout/fragment_delete_category" />
 </navigation>

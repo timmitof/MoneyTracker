@@ -27,7 +27,8 @@ class TransactionsFragment : BaseFragment<FragmentTransactionsBinding>(), ITrans
         val dbTransaction = App.instance?.getDatabase()?.TransactionDao()
         val adapter = dbTransaction?.getAllTransaction()?.let { HistoryAdapter(it) }
         binding.transactionsRecyclerView.adapter = adapter
-        binding.filterButton.setOnClickListener {
+        binding.toolbar.title.text = "История"
+        binding.toolbar.imageButton.setOnClickListener {
             setBottomSheetDialog()
         }
     }

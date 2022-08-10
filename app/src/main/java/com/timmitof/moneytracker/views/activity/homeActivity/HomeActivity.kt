@@ -2,7 +2,6 @@ package com.timmitof.moneytracker.views.activity.homeActivity
 
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections

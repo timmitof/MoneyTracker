@@ -19,4 +19,5 @@
     <string name="by_expense">Расходам</string>
     <string name="home">Главная</string>
     <string name="history">История</string>
+    <string name="budget">Бюджет</string>
 </resources>

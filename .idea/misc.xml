@@ -129,7 +129,7 @@
         <entry key="app/src/main/res/layout/add_account_bottom_sheet.xml" value="0.33" />
         <entry key="app/src/main/res/layout/add_category_bottom_sheet.xml" value="0.33" />
         <entry key="app/src/main/res/layout/add_username_layout.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/bottom_sheet_filter.xml" value="0.2961462933084239" />
+        <entry key="app/src/main/res/layout/bottom_sheet_filter.xml" value="0.33" />
         <entry key="app/src/main/res/layout/choose_icon_bottom_sheet.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_add_category.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_add_expense.xml" value="0.33" />
@@ -138,12 +138,12 @@
         <entry key="app/src/main/res/layout/fragment_choose_type_category.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_delete_category.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/layout/fragment_first_on_boarding.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.34081902245706736" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_on_boarding.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3021331787109375" />
         <entry key="app/src/main/res/layout/fragment_report.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/fragment_second_on_boarding.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.33508148193359377" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_third__on_boarding.xml" value="0.14387031408308004" />
         <entry key="app/src/main/res/layout/fragment_third_on_boarding.xml" value="0.15070921985815602" />
@@ -154,6 +154,7 @@
         <entry key="app/src/main/res/layout/item_onboarding_viewpager.xml" value="0.16304347826086957" />
         <entry key="app/src/main/res/layout/item_transactions.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_choose_category.xml" value="0.3121085125467052" />
+        <entry key="app/src/main/res/layout/main_toolbar.xml" value="0.33" />
         <entry key="app/src/main/res/layout/onboarding_item_container.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/recent_transactions_item_cell.xml" value="0.33" />
         <entry key="app/src/main/res/layout/spinner_category.xml" value="0.33" />

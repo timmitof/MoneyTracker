@@ -47,4 +47,6 @@
     <color name="blue60">#57A5FF</color>
     <color name="blue80">#248AFF</color>
     <color name="blue100">#0077FF</color>
+    
+    <color name="main_info">#FFF6E5</color>
 </resources>

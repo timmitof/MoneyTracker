@@ -54,6 +54,7 @@ class OnBoardingFragment : Fragment(), OnBoardingContract.View {
                 viewpager.currentItem += 1
             } else {
                 presenter.startActivity(requireActivity(), HomeActivity())
+                requireActivity().finish()
             }
         }
 

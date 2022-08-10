@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.graphics.Color
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.timmitof.moneytracker.App
@@ -16,13 +17,15 @@ import com.timmitof.moneytracker.views.BaseFragment
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeContract.View {
 
     private lateinit var presenter: HomeContract.Presenter
+
     override fun getViewBinding() = FragmentHomeBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter = HomePresenter(this, requireContext())
         setRecyclerView()
         setViews()
-        presenter = HomePresenter(this, requireContext())
+        setupToolBar()
     }
 
     override fun setRecyclerView() {
@@ -49,5 +52,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeContract.View {
         binding.addFab.setOnClickListener {
             presenter.addFabOnClick(binding.addIncomeFab, binding.addExpenseFab, binding.addFab)
         }
+    }
+
+    private fun setupToolBar() {
+        binding.toolbar.title.text = "Главная"
+        binding.toolbar.background.setBackgroundResource(R.color.main_info)
+        binding.toolbar.imageButton.visibility = View.GONE
     }
 }
