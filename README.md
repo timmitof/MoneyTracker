@@ -5,7 +5,7 @@
 
 _____
 
-![IMAGE 2022-08-11 23:28:48](https://user-images.githubusercontent.com/81027444/184196151-4fc49f3a-353b-47c6-9c7d-1d4ee91e2e78.jpg)
+![MoneyTracker](https://user-images.githubusercontent.com/81027444/184196646-65317996-fbe7-4325-a1ac-72b0844e28d4.png)
 
 _____
 
